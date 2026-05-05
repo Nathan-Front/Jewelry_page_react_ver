@@ -1,5 +1,5 @@
 export const secondData = [
-    {src:"./images/shop/earings/gold.webp", title:"earrings", 
+    {src:"./images/shop/earings/gold.webp", title:"Earrings", 
     details: [
         {
           maintitle: "Effortless Elegance, Every Day"
@@ -17,7 +17,7 @@ export const secondData = [
           info: "– Gentle on sensitive ears"
         }
     ] },
-    {src:"./images/shop/necklace/necklace1.webp", title: "necklaces",
+    {src:"./images/shop/necklace/necklace1.webp", title: "Necklaces",
     details: [
         {
           maintitle: "Refined Simplicity, Made to Layer"
@@ -35,7 +35,7 @@ export const secondData = [
           info: "– Mix, match, and personalize your style"
         }
     ] },
-    {src:"./images/shop/bracelet/beaded.webp", title: "bracelets",
+    {src:"./images/shop/bracelet/beaded.webp", title: "Bracelets",
     details: [
         {
           maintitle: "Subtle Detail, Effortless Style"
@@ -53,7 +53,7 @@ export const secondData = [
           info: "– Versatile for layering or a clean finish"
         }
     ] },
-    {src:"./images/shop/rings/diamondBand.webp", title: "rings",
+    {src:"./images/shop/rings/diamondBand.webp", title: "Rings",
     details: [
         {
           maintitle: "Refined Simplicity at Your Fingertips"
@@ -71,7 +71,7 @@ export const secondData = [
           info: "– Versatile for personal styling"
         }
     ] },
-    {src:"./images/shop/bangles/bangle1.webp", title: "bangles",
+    {src:"./images/shop/bangles/bangle1.webp", title: "Bangles",
     details: [
         {
           maintitle: "Clean Lines, Lasting Presence"
@@ -89,7 +89,7 @@ export const secondData = [
           info: "– Layer to create your own style"
         }
     ] },
-    {src:"./images/shop/tiara/tiara1.webp", title: "tiaras",
+    {src:"./images/shop/tiara/tiara1.webp", title: "Tiaras",
     details: [
         {
           maintitle: "Grace in Every Detail"
@@ -107,7 +107,7 @@ export const secondData = [
           info: "– Sits naturally with a secure, comfortable fit"
         }
     ] },
-    {src:"./images/shop/anklet/anklet1.webp", title: "anklets",
+    {src:"./images/shop/anklet/anklet1.webp", title: "Anklets",
     details: [
         {
           maintitle: "Light Detail, Effortless Charm"
@@ -125,7 +125,7 @@ export const secondData = [
           info: "– A refined finish for any look"
         }
     ] },
-    {src:"./images/about/banner/banner.webp", title: "others",
+    {src:"./images/about/banner/banner.webp", title: "Others",
     details: [
         {
           maintitle: "Refined Essentials, Beyond Jewelry"

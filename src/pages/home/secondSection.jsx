@@ -35,7 +35,7 @@ function SecondSection() {
                   </button>
                 </div>
               </div>
-              <p>Earrings</p>
+              <p>{item.title}</p>
             </li>
           ))}
         </ul>

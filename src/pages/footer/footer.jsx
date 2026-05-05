@@ -25,7 +25,6 @@ function Footer() {
                   <li key={index}>
                     {item.maintitle && <h5>{item.maintitle}</h5>}
                   </li>
-
                   {item.details.map((quick, i) => (
                     <li key={i}>
                       {quick.link && (
@@ -44,48 +43,25 @@ function Footer() {
               ))}
             </ul>
             <ul className="footer-media-wrap">
-              <li>
-                <h5>FOLLOW US</h5>
-              </li>
-              <li>
-                <a href="">
-                  <img
-                    src="./images/footer/media/meta-svgrepo-com.svg"
-                    alt="facebook"
-                    loading="lazy"
-                  />
-                  Meta
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <img
-                    src="./images/footer/media/X_icon_-_Gray.svg"
-                    alt="x/twitter"
-                    loading="lazy"
-                  />
-                  X
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <img
-                    src="./images/footer/media/instagram-svgrepo-com.svg"
-                    alt="instagram"
-                  />
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <img
-                    src="./images/footer/media/linkedin-svgrepo-com.svg"
-                    alt="linkedin"
-                    loading="lazy"
-                  />
-                  LinkedIn
-                </a>
-              </li>
+              {mediaLinks.map((item, index) => (
+                <>
+                  <li key={index}>
+                    {item.maintitle && <h5>{item.maintitle}</h5>}
+                  </li>
+                  {item.details.map((media, i) => (
+                    <li key={i}>
+                      <a href="">
+                        <img
+                          src={media.src}
+                          alt={media.link + "-image"}
+                          loading="lazy"
+                        />
+                        {media.link}
+                      </a>
+                    </li>
+                  ))}
+                </>
+              ))}
             </ul>
           </div>
           <div className="footer-form-wrap">
