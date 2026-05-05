@@ -1,0 +1,30 @@
+function ThirdSection() {
+  return (
+    <>
+      <section className="home-third-section">
+        <article className="our-story-wrap">
+          <h2>Our Story</h2>
+          <p>
+            At LUMINOSUS, we believe jewelry is more than an accessory—it is a
+            quiet expression of identity, a reflection of moments that matter,
+            and a piece of art meant to be lived in. Our journey began with a
+            simple idea: to create pieces that feel timeless yet personal.
+            Inspired by the soft glow of natural light and the elegance of
+            minimal design, each creation is thoughtfully crafted to balance
+            subtlety and sophistication.
+          </p>
+          <a href="about.html">Read More</a>
+        </article>
+        <div className="our-story-image-wrap">
+          <img
+            src="./images/about/banner/banner.webp"
+            alt="our image"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default ThirdSection;

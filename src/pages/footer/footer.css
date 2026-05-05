@@ -194,3 +194,6 @@ footer {
         align-items: flex-start;
     }
 }
+.honey_pot {
+    display: none;
+}

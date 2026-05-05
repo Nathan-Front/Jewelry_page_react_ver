@@ -1,0 +1,13 @@
+function FirstSection() {
+  return (
+    <>
+      <section className="home-first-section">
+        <h1>Elegant Jewelry</h1>
+        <p>Timeless Beauty</p>
+        <a href="shop.html">Shop Now</a>
+      </section>
+    </>
+  );
+}
+
+export default FirstSection;
