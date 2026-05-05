@@ -1,4 +1,4 @@
-function subscribe() {
+/*function subscribe() {
     const scriptURL = "https://script.google.com/macros/s/AKfycbwm8k3mSFHtNzcpodXp6UQWqXAbt4oypaxsEHwLsO8UkXvrcCBYqKuXjRTThLTvLqtW/exec";
     const form = document.getElementById("subscribe-form");
     if (!form) {
@@ -58,4 +58,4 @@ function subscribe() {
         }
         
     });
-}
+}*/

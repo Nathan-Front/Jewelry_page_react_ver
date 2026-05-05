@@ -1,13 +1,58 @@
 import { quickLinks, mediaLinks } from "./scripts/footerData.js";
 import { useState } from "react";
+import React from "react";
 import { validateEmail } from "../../assets/script/emailValidator.js";
 function Footer() {
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbwm8k3mSFHtNzcpodXp6UQWqXAbt4oypaxsEHwLsO8UkXvrcCBYqKuXjRTThLTvLqtW/exec";
+  const initialForm = {
+    subscribers: "",
+    _honey: "",
+  };
+  const [isEmail, setIsEmail] = useState(initialForm);
 
-  const [isEmail, setIsEmail] = useState(false);
-  const subscribeMail = () => {
-    const result = validateEmail();
+  const handleInput = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setIsEmail((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const [isError, setIsError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const subscribeMail = async (e) => {
+    e.preventDefault();
+    if (isEmail._honey) {
+      console.log("Bot submission detected.");
+      return;
+    }
+    const result = validateEmail(isEmail.subscribers);
+    if (!result) {
+      setIsError(true);
+      return;
+    }
+    setIsSending(true);
+    const data = { email: isEmail.subscribers };
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbwm8k3mSFHtNzcpodXp6UQWqXAbt4oypaxsEHwLsO8UkXvrcCBYqKuXjRTThLTvLqtW/exec";
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      const result = await response.text();
+      if (result === "Duplicate") {
+        alert("Email already subscribed!");
+      } else {
+        alert("Thank you for subscribing!");
+        setIsError(false);
+        setIsEmail(initialForm);
+      }
+    } catch (e) {
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -21,10 +66,8 @@ function Footer() {
           <div className="footer-links-wrap">
             <ul className="quick-links">
               {quickLinks.map((item, index) => (
-                <>
-                  <li key={index}>
-                    {item.maintitle && <h5>{item.maintitle}</h5>}
-                  </li>
+                <React.Fragment key={index}>
+                  <li>{item.maintitle && <h5>{item.maintitle}</h5>}</li>
                   {item.details.map((quick, i) => (
                     <li key={i}>
                       {quick.link && (
@@ -39,12 +82,12 @@ function Footer() {
                       )}
                     </li>
                   ))}
-                </>
+                </React.Fragment>
               ))}
             </ul>
             <ul className="footer-media-wrap">
               {mediaLinks.map((item, index) => (
-                <>
+                <React.Fragment key={index}>
                   <li key={index}>
                     {item.maintitle && <h5>{item.maintitle}</h5>}
                   </li>
@@ -60,30 +103,44 @@ function Footer() {
                       </a>
                     </li>
                   ))}
-                </>
+                </React.Fragment>
               ))}
             </ul>
           </div>
           <div className="footer-form-wrap">
-            <form action="" id="subscribe-form">
+            <form action="" id="subscribe-form" onSubmit={subscribeMail}>
               <label htmlFor="subscribe-input">Stay Updated</label>
               <input
                 type="text"
                 placeholder="enter email"
-                name="Subscribers"
+                name="subscribers"
                 id="subscribe-input"
+                value={isEmail.subscribers}
+                onChange={handleInput}
+                className={`${isError ? "input-error" : ""}`}
                 required
               />
               <input
                 type="text"
-                className="honey_pot"
                 name="_honey"
+                value={isEmail._honey}
+                onChange={handleInput}
+                style={{
+                  position: "absolute",
+                  left: "-999999px",
+                }}
                 tabIndex="-1"
                 autoComplete="off"
               />
-              <button type="submit" id="submit-button">
-                <span id="loader" className="spinner hidden"></span>
-                <span id="btn-text">Subscribe</span>
+              <button type="submit" id="submit-button" disabled={isSending}>
+                <span
+                  id="loader"
+                  className={`${isSending ? "spinner" : ""}`}
+                ></span>
+                <span id="btn-text">
+                  {" "}
+                  {isSending ? "Sending..." : "Subscribe"}
+                </span>
               </button>
             </form>
           </div>
