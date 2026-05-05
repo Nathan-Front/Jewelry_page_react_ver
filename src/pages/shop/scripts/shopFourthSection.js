@@ -1,0 +1,6 @@
+export const braceletData = [
+    {article: "Beaded", price:"125.00", date: "2025-12-15", rating:"90", src:"./images/shop/bracelet/beaded.webp", description: "Simple and refined, this beaded bracelet features a clean arrangement of delicate beads for a balanced, minimalist look. Lightweight and versatile, it’s perfect for everyday wear or subtle layering."},
+    {article: "Braided", price:"49.99", date: "2026-1-5", rating:"85", src:"./images/shop/bracelet/braided.webp", description: "Clean and understated, this braided bracelet features a simple woven design that adds subtle texture. Lightweight and easy to wear, it offers a relaxed, minimalist touch to any look."},
+    {article: "Charm", price:"100.00", date: "2026-2-15", rating:"88", src:"./images/shop/bracelet/charm.webp", description: "Delicate and personal, this charm bracelet features a clean chain with subtle accents. Designed for everyday wear, it adds a quiet touch of character while keeping a refined, minimalist look."},
+    {article: "Chain", price:"39.99", date: "2026-3-08", rating:"80", src:"./images/shop/bracelet/chain.webp", description: "Clean and versatile, this chain bracelet features a refined link design with a smooth, minimalist finish. Lightweight and easy to style, it adds a subtle touch of polish to any look."},
+];

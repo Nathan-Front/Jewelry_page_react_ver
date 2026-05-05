@@ -1,4 +1,11 @@
+import { Link } from "react-router-dom";
 function Navigation() {
+  const navLinks = [
+    { name: "HOME", path: "/" },
+    { name: "SHOP", path: "/shop" },
+    { name: "ABOUT", path: "/about" },
+    { name: "CONTACT", path: "/contact" },
+  ];
   return (
     <>
       <nav className="nav-main-wrapper">
@@ -12,18 +19,11 @@ function Navigation() {
           </li>
           <li className="nav-links-group">
             <ul className="nav-links-group-wrap">
-              <li className="links">
-                <a href="index.html">HOME</a>
-              </li>
-              <li className="links">
-                <a href="shop.html">SHOP</a>
-              </li>
-              <li className="links">
-                <a href="about.html">ABOUT</a>
-              </li>
-              <li className="links">
-                <a href="contact.html">CONTACT</a>
-              </li>
+              {navLinks.map((links, index) => (
+                <li className="links" key={index}>
+                  <Link to={links.path}>{links.name}</Link>
+                </li>
+              ))}
             </ul>
           </li>
           <li>

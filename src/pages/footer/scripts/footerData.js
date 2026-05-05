@@ -1,10 +1,10 @@
 export const quickLinks = [
     {maintitle: "QUICK LINKS",
     details: [
-        {link: "HOME", src: "./images/footer/links/home-icon-svgrepo-com.svg"},
-        {link: "SHOP", src: "./images/footer/links/cart-svgrepo-com.svg"},
-        {link: "ABOUT", src: "./images/footer/links/about-svgrepo-com.svg"},
-        {link: "CONTACT", src: "./images/footer/links/contact-svgrepo-com.svg"},
+        {link: "HOME", path:"/", src: "./images/footer/links/home-icon-svgrepo-com.svg"},
+        {link: "SHOP", path:"/shop",  src: "./images/footer/links/cart-svgrepo-com.svg"},
+        {link: "ABOUT", path:"/about",  src: "./images/footer/links/about-svgrepo-com.svg"},
+        {link: "CONTACT", path:"/contact",  src: "./images/footer/links/contact-svgrepo-com.svg"},
     ] },
 ];
 

@@ -1,0 +1,6 @@
+export const necklaceData = [
+    {article: "Plastron", price:"100.00", date: "2025-12-15", rating:"90", src:"./images/shop/necklace/necklace1.webp", description: "A bold yet clean statement, this plastron necklace features a structured silhouette that rests gracefully along the neckline. Its minimalist design brings modern elegance while maintaining a refined, understated look."},
+    {article: "Chain", price:"29.99", date: "2026-01-01", rating:"86", src:"./images/shop/necklace/chain.webp", description: "A modern blend of structure and simplicity, this hoop chain necklace features clean links and a refined silhouette. Lightweight and versatile, it adds a subtle edge to both everyday and elevated looks."},
+    {article: "Pearl", price:"59.99", date: "2026-04-25", rating:"80", src:"./images/shop/necklace/pearl.webp", description: "Timeless and understated, this pearl necklace brings a soft, refined elegance to any look. Designed with a clean silhouette, it’s perfect for everyday wear or subtle occasions."},
+    {article: "Birthstone", price:"89.99", date: "2026-04-15", rating:"87", src:"./images/shop/necklace/birthstone.webp", description: "Personal and refined, this birthstone necklace features a delicate setting with a touch of color. Designed to be meaningful yet minimal, it adds a subtle, elegant accent to everyday wear."},
+];

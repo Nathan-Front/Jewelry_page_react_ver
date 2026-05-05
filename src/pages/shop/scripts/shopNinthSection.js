@@ -1,0 +1,6 @@
+export const otherData = [
+    {article: "Gold Plated Wrist Watch", price:"199.99", date: "2025-12-20", rating:"90", src:"./images/shop/others/watch.webp", description: "Sleek and refined, this gold-plated wrist watch features a clean dial and a polished finish. Minimal in design, it offers a timeless look that transitions effortlessly from everyday wear to formal occasions."},
+    {article: "Gold Plated Pocket Watch", price:"299.99", date: "2026-1-15", rating:"89", src:"./images/shop/others/pocket.webp", description: "Classic and refined, this gold-plated pocket watch features a clean dial and a polished finish. Minimal yet timeless, it offers a subtle vintage touch with effortless elegance."},
+    {article: "Gold Plated Belt", price:"39.99", date: "2026-2-15", rating:"84", src:"./images/shop/others/belt.webp", description: "Clean and understated, this gold belt features a sleek finish with a refined buckle detail. Minimal in design, it adds a subtle touch of polish to both everyday and elevated looks."},
+    {article: "Gold Plated Lighter", price:"29.99", date: "2026-3-15", rating:"87", src:"./images/shop/others/lighter.webp", description: "Sleek and refined, this gold-plated lighter features a clean, polished finish in a minimalist design. Compact and elegant, it adds a subtle touch of sophistication to everyday essentials."},
+];

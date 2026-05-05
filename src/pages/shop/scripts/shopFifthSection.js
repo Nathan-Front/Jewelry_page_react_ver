@@ -1,0 +1,6 @@
+export const ringData = [
+    {article: "Three Stone", price:"75.00", date: "2025-12-15", rating:"90", src:"./images/shop/rings/threeStone.webp", description: "Balanced and refined, this three stone ring features a clean, symmetrical design with subtle brilliance. Understated yet meaningful, it adds a quiet elegance to both everyday wear and special moments."},
+    {article: "Solitaire", price:"129.99", date: "2025-2-15", rating:"85", src:"./images/shop/rings/solitaire.webp", description: "Simple and timeless, this solitaire ring features a single stone set in a clean, refined design. Elegant and understated, it offers a subtle brilliance perfect for everyday wear or special moments."},
+    {article: "Diamon Band", price:"250.00", date: "2025-3-15", rating:"88", src:"./images/shop/rings/diamondBand.webp", description: "Sleek and refined, this diamond band ring features a continuous line of subtle sparkle. Designed with a clean, minimalist profile, it adds effortless elegance to everyday wear or layering."},
+    {article: "Mood", price:"89.99", date: "2026-4-15", rating:"82", src:"./images/shop/rings/mood.webp", description: "Playful yet refined, this mood ring features a clean design with a subtle color-changing center. Minimal in form, it adds a quiet touch of personality to your everyday look."},
+];

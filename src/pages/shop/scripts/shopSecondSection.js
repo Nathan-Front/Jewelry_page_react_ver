@@ -1,0 +1,8 @@
+export const earringData = [
+    {article: "Classic Gold Studs", price:"120.00", date: "2025-12-15", rating:"90", src:"./images/shop/earings/gold.webp", description: "Clean and timeless, these gold studs are designed for everyday wear. Lightweight and versatile, they add a subtle touch of elegance to any outfit."},
+    {article: "Gold Studs", price:"125.00", date: "2026-01-01", rating:"86", src:"./images/shop/earings/gold2.webp", description: "Clean and timeless, these gold studs are designed for everyday wear. Lightweight and versatile, they add a subtle touch of elegance to any outfit."},
+    {article: "Pearl Drop", price:"39.99", date: "2026-04-25", rating:"84", src:"./images/shop/earings/pearldrop.webp", description: "Delicate pearls suspended on a fine setting create a soft, refined look. Ideal for adding a hint of sophistication without being overwhelming."},
+    {article: "Ear Spike", price:"49.99", date: "2026-04-15", rating:"87", src:"./images/shop/earings/spike.webp", description: "A simple design that speaks through clean lines. These earrings are perfect for those who appreciate understated beauty."},
+    {article: "Dangle", price:"69.99", date: "2026-02-16", rating:"83", src:"./images/shop/earings/dangle.webp", description: "Lightweight and elegant, these dangle earrings are designed to move with you. Their clean, minimal silhouette adds a soft statement to any look—perfect for both everyday wear and special occasions."},
+    {article: "Hoop", price:"79.99", date: "2026-03-2", rating:"92", src:"./images/shop/earings/hoop.webp", description: "Clean and timeless, these hoop earrings offer a refined, minimalist look. Lightweight and easy to wear, they bring effortless balance to both everyday and elevated styles."},
+];

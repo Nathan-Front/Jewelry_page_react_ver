@@ -1,5 +1,6 @@
 import { quickLinks, mediaLinks } from "./scripts/footerData.js";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import React from "react";
 import { validateEmail } from "../../assets/script/emailValidator.js";
 function Footer() {
@@ -71,14 +72,14 @@ function Footer() {
                   {item.details.map((quick, i) => (
                     <li key={i}>
                       {quick.link && (
-                        <a href="index.html" key={i}>
+                        <Link to={quick.path} key={i}>
                           <img
                             src={quick.src}
                             alt={quick.src + "-image"}
                             loading="lazy"
                           />
                           {quick.link}
-                        </a>
+                        </Link>
                       )}
                     </li>
                   ))}

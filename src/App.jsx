@@ -3,6 +3,7 @@ import Navigation from "./pages/navigation/navigation.jsx";
 import MobileNav from "./pages/navigation/mobileNav.jsx";
 import Footer from "./pages/footer/footer.jsx";
 import Home from "./pages/home/home.jsx";
+import Shop from "./pages/shop/shop.jsx";
 function App() {
   return (
     <HashRouter>
@@ -10,6 +11,7 @@ function App() {
       <MobileNav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
       <Footer />
     </HashRouter>
