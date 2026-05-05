@@ -1,0 +1,52 @@
+function MobileNav() {
+  return (
+    <>
+      <nav className="mobile-navigation-wrap">
+        <ul>
+          <li>
+            <a href="index.html">
+              <img
+                src="./images/footer/links/home-icon-svgrepo-com.svg"
+                alt="home"
+                loading="lazy"
+              />
+              <span>HOME</span>
+            </a>
+          </li>
+          <li>
+            <a href="shop.html">
+              <img
+                src="./images/footer/links/cart-svgrepo-com.svg"
+                alt="shop"
+                loading="lazy"
+              />
+              <span>SHOP</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <img
+                src="./images/footer/links/about-svgrepo-com.svg"
+                alt="about"
+                loading="lazy"
+              />
+              <span>ABOUT</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html">
+              <img
+                src="./images/footer/links/contact-svgrepo-com.svg"
+                alt="contact"
+                loading="lazy"
+              />
+              <span>CONTACT</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </>
+  );
+}
+
+export default MobileNav;

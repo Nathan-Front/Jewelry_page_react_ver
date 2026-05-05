@@ -1,0 +1,140 @@
+<section class="summary-section">
+  <div class="form-summary-wrap">
+    <form action="" class="checkout-form" id="checkout-form">
+      <p class="container-title">Billing Info:</p>
+      <label for="contact">Contact:</label>
+      <input
+        type="text"
+        id="contact"
+        name="contact"
+        placeholder="Contact number"
+        required
+      />
+      <label for="address">Address 1:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Address 1 (State, city, block/street, building #, etc.)"
+        required
+      />
+      <label for="address2">Address 2:</label>
+      <input
+        type="text"
+        id="address2"
+        name="address2"
+        placeholder="Address 2 (optional)"
+      />
+      <input
+        type="text"
+        name="_honey"
+        style="display: none"
+        tabindex="-1"
+        autocomplete="off"
+      />
+      <div class="divider"></div>
+      <p class="container-title payment-method-title">Payment Method:</p>
+      <div class="paypal-container" id="paypal-button-container"></div>
+      <p id="result-message"></p>
+    </form>
+    <div class="summary-header">
+      <p class="container-title">Checkout Summary:</p>
+      <div class="display-summary">
+        <div>Article</div>
+        <div>Item</div>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Sub Total</div>
+        <ul id="cart-items-summary">
+          <!-- Cart items will be populated here -->
+        </ul>
+      </div>
+      <div class="payment-summary-card">
+        <p>Sub Total: $<span id="sub-total-price-summary">0</span></p>
+        <p class="shipping-fee">
+          Shipping Fee: <span id="shippingFee">free</span>
+        </p>
+        <p class="tax">Tax: <span id="tax-amount">10%</span></p>
+        <p class="total">Total: $<span id="total-price-summary">0.00</span></p>
+      </div>
+
+      <div class="payment-methods">
+        <p>We accept:</p>
+        <ul>
+          <li>
+            <img
+              src="./images/shop/payment/mastercard-full-svgrepo-com.svg"
+              alt="mastercard"
+            />
+          </li>
+          <li>
+            <img
+              src="./images/shop/payment/visa-4-logo-svgrepo-com.svg"
+              alt="visa"
+            />
+          </li>
+          <li>
+            <img
+              src="./images/shop/payment/paypal-svgrepo-com.svg"
+              alt="paypal"
+            />
+          </li>
+          <li>
+            <img
+              src="./images/shop/payment/amazon-pay-svgrepo-com.svg"
+              alt="amazonpay"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="refund-policy-main-wrap">
+    <div class="refund-policy-wrap">
+      <p class="title-policy">Return & Refund Policy</p>
+      <p>
+        At LUMINOSUS, we want you to feel confident in every piece you purchase.
+        If something isn’t quite right, we’re here to help.
+      </p>
+      <p class="title-sub-policy">Returns Eligibility</p>
+      <ul>
+        <li><p>You may request a return within 14 days of delivery if:</p></li>
+        <li><p>The item is unused and unworn</p></li>
+        <li><p>It is in its original condition and packaging</p></li>
+        <li>
+          <p>You have proof of purchase (order confirmation or receipt)</p>
+        </li>
+      </ul>
+      <p class="title-sub-policy">Non-Returnable Items</p>
+      <ul>
+        <li>
+          <p>
+            For hygiene and customization reasons, the following items are not
+            eligible for return:
+          </p>
+        </li>
+        <li><p>Earrings (for pierced ears)</p></li>
+        <li><p>Customized or engraved jewelry</p></li>
+        <li>
+          <p>Final sale or clearance items</p>
+        </li>
+      </ul>
+      <p class="title-sub-policy">Exchanges</p>
+      <ul>
+        <li><p>We currently offer exchanges for:</p></li>
+        <li><p>Defective or damaged items</p></li>
+        <li><p>Incorrect items received</p></li>
+        <li>
+          <p>
+            If you need a different size or style, we recommend placing a new
+            order and returning the original item.
+          </p>
+        </li>
+      </ul>
+      <p>
+        For more details, please read our
+        <a href="policy.html">Return & Refund Policy</a>
+      </p>
+    </div>
+  </div>
+</section>

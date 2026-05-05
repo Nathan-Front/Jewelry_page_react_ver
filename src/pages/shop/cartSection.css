@@ -1,0 +1,45 @@
+.float-cart { 
+    position: fixed; 
+    top: 9%;
+    right: 3px;
+    left: auto;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0;
+    border-radius: 50%;
+    z-index: 9;
+}
+.float-cart > button {
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid #C9A14A;
+    color: #C9A14A;
+    background: #FFF;
+    border-radius: 50%;
+}
+.float-cart > button:hover {
+    transform: unset;
+}
+.float-cart > button> img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/*
+#cart-count {
+    position: absolute;
+    top: 60%;
+    left: -5%;
+    background-color: white;
+    color: #C9A14A;
+    font-weight: bolder;
+    padding: 1px 4px;
+    border-radius: 50%;
+}*/
+@media only screen and (max-width: 599px) {
+    .float-cart {
+        top: 5%;
+        right: 3px;
+    }
+}

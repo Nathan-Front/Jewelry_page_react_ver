@@ -1,0 +1,196 @@
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 30px 0 0 0;
+    background-color: #eee;
+}
+.upper-footer {
+   display: flex;
+   align-items: center;
+   padding-bottom: 20px;
+}
+.footer-title {
+    flex: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-title> p {
+    margin: 0;
+    width: 80%;
+    text-align: center;
+}
+.footer-web-title {
+    font-size: clamp(1.2rem, 3vw, 4rem);
+    font-weight: 500;
+}
+.footer-links-wrap{
+    flex: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    border-left: 2px #0000001F solid;
+    border-right: 2px #0000001F solid;
+    
+}
+.quick-links,
+.footer-media-wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+.footer-links-wrap> ul> li> h5 {
+    margin: 0;
+    font-size: clamp(0.9rem, 1.4vw, 2rem);
+}
+.footer-links-wrap> ul> li> a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: clamp(1rem, 1.2vw, 1.8rem);
+    color: black;
+}
+.footer-links-wrap> ul> li> a:hover {
+    color: #C9A96E;
+    font-weight: bold;
+}
+.footer-links-wrap> ul> li> a> img {
+    width: clamp(15px, 1.5vw, 50px);
+}
+.footer-form-wrap{
+    flex: 25%;
+}
+.footer-form-wrap> form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    gap: 5px;
+}
+.footer-form-wrap> form> label {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+}
+.footer-form-wrap> form> input {
+    align-self: stretch;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: .2s;
+}
+.footer-form-wrap> form> input:focus {
+    border-color: #c9a24d;
+    box-shadow: 0 0 0 3px rgba(201,162,77,.15);
+}
+.footer-form-wrap> form> button {
+    align-self: stretch;
+    font-size: clamp(1.1rem, 1.3vw, 2rem);
+    background-color: #1A1A1A;
+    color: #E5E4E2;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    padding: 3px 5px;
+}
+.footer-form-wrap> form> button:hover {
+    color: #C9A96E;
+    font-weight: 600;
+}
+.lower-footer {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 15px 0;
+    border-top: 2px #0000001F solid;
+}
+.lower-footer> p {
+    margin: 0;
+    font-size: clamp(0.7rem, 1.2vw, 1.3rem);
+}
+.footer-form-wrap> form> input.input-error {
+    border: 1px solid red;
+    border-radius: 0.25em;
+    border-radius: 10px;
+}
+.spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+    margin-right: 8px;
+}
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.hidden { 
+    display: none; 
+}
+@media only screen and (max-width: 599px) {
+    footer  {
+        padding-bottom: 50px;
+    }
+    .upper-footer  {
+       flex-direction: column;
+    }
+    .footer-title {
+        width: 95%;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-title> p {
+        width: 100%;
+        text-align: left;
+    }
+    .footer-links-wrap {
+        width: 95%;
+        margin: 1rem auto;
+        border: unset;
+    }
+    .quick-links {
+        display: none;
+    }
+    .footer-media-wrap {
+        flex-wrap: wrap;
+        flex-direction: row;    
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0;
+        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: auto auto;
+        width: 100%;
+    }
+    .footer-media-wrap> li:first-child {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+    }
+    .footer-links-wrap> ul> li> h5 {
+        margin: 0;
+        padding: 0;
+    }
+    .footer-form-wrap {
+        width: 100%;
+    }
+    .footer-form-wrap> form {
+        width: 95%;
+        margin: 0 auto;
+        gap: 10px;
+    }
+    .lower-footer {
+        align-items: flex-start;
+    }
+}
