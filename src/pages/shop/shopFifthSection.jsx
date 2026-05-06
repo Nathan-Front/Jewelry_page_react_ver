@@ -1,5 +1,5 @@
-function ShopFifthSection({ filterHandler }) {
-  const ring = filterHandler.filter((item) => item.category === "ring");
+function ShopFifthSection({ filterHandler, setIsModal }) {
+  const ring = filterHandler.filter((item) => item.category === "rings");
   return (
     <>
       <section className="shop-item-section" id="rings-section">
@@ -27,7 +27,7 @@ function ShopFifthSection({ filterHandler }) {
                     <button
                       type="button"
                       className="buy-now-btn"
-                      data-item="ring"
+                      onClick={() => setIsModal(item)}
                     >
                       Buy now
                     </button>

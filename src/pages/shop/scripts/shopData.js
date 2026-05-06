@@ -61,7 +61,7 @@ export const itemData = [
     },
     {
         id: "1001",
-        category: "necklace",
+        category: "necklaces",
         article: "Plastron",
         price: 100.00,
         date: "2025-12-15",
@@ -71,7 +71,7 @@ export const itemData = [
     },
     {
         id: "1002",
-        category: "necklace",
+        category: "necklaces",
         article: "Chain",
         price: 29.99,
         date: "2026-01-01",
@@ -81,7 +81,7 @@ export const itemData = [
     },
     {
         id: "1003",
-        category: "necklace",
+        category: "necklaces",
         article: "Pearl",
         price: 59.99,
         date: "2026-04-25",
@@ -91,7 +91,7 @@ export const itemData = [
     },
     {
         id: "1004",
-        category: "necklace",
+        category: "necklaces",
         article: "Birthstone",
         price: 89.99,
         date: "2026-04-15",
@@ -101,7 +101,7 @@ export const itemData = [
     },
     {
         id: "2001",
-        category: "bracelet",
+        category: "bracelets",
         article: "Beaded",
         price: 125.00,
         date: "2025-12-15",
@@ -111,7 +111,7 @@ export const itemData = [
     },
     {
         id: "2002",
-        category: "bracelet",
+        category: "bracelets",
         article: "Braided",
         price: 49.99,
         date: "2026-1-5",
@@ -121,7 +121,7 @@ export const itemData = [
     },
     {
         id: "2003",
-        category: "bracelet",
+        category: "bracelets",
         article: "Charm",
         price: 100.00,
         date: "2026-2-15",
@@ -131,7 +131,7 @@ export const itemData = [
     },
     {
         id: "2004",
-        category: "bracelet",
+        category: "bracelets",
         article: "Chain",
         price: 39.99,
         date: "2026-3-08",
@@ -141,7 +141,7 @@ export const itemData = [
     },
     {
         id: "3001",
-        category: "ring",
+        category: "rings",
         article: "Three Stone",
         price: 75.00,
         date: "2025-12-15",
@@ -151,7 +151,7 @@ export const itemData = [
     },
     {
         id: "3002",
-        category: "ring",
+        category: "rings",
         article: "Solitaire",
         price: 129.99,
         date: "2025-2-15",
@@ -161,7 +161,7 @@ export const itemData = [
     },
     {
         id: "3003",
-        category: "ring",
+        category: "rings",
         article: "Diamon Band",
         price: 250.00,
         date: "2025-3-15",
@@ -171,7 +171,7 @@ export const itemData = [
     },
     {
         id: "3004",
-        category: "ring",
+        category: "rings",
         article: "Mood",
         price: 89.99,
         date: "2026-4-15",
@@ -181,7 +181,7 @@ export const itemData = [
     },
     {
         id: "4001",
-        category: "bangle",
+        category: "bangles",
         article: "Solid Metal",
         price: 69.99,
         date: "2025-12-03",
@@ -191,7 +191,7 @@ export const itemData = [
     },
     {
         id: "4002",
-        category: "bangle",
+        category: "bangles",
         article: "Cuff",
         price: 99.99,
         date: "2026-1-10",
@@ -201,7 +201,7 @@ export const itemData = [
     },
     {
         id: "4003",
-        category: "bangle",
+        category: "bangles",
         article: "Lacquer",
         price: 39.99,
         date: "2026-2-15",
@@ -211,7 +211,7 @@ export const itemData = [
     },
     {
         id: "4004",
-        category: "bangle",
+        category: "bangles",
         article: "Hinged",
         price: 59.99,
         date: "2026-4-01",
@@ -221,7 +221,7 @@ export const itemData = [
     },
     {
         id: "5001",
-        category: "tiara",
+        category: "tiaras",
         article: "Fringe",
         price: 119.99,
         date: "2025-11-15",
@@ -231,7 +231,7 @@ export const itemData = [
     },
     {
         id: "5002",
-        category: "tiara",
+        category: "tiaras",
         article: "Meander",
         price: 149.99,
         date: "2025-12-01",
@@ -241,7 +241,7 @@ export const itemData = [
     },
     {
         id: "5003",
-        category: "tiara",
+        category: "tiaras",
         article: "Aigrette",
         price: 175.00,
         date: "2026-1-15",
@@ -251,7 +251,7 @@ export const itemData = [
     },
     {
         id: "5004",
-        category: "tiara",
+        category: "tiaras",
         article: "Bandeau",
         price: 160.00,
         date: "2026-2-15",
@@ -261,7 +261,7 @@ export const itemData = [
     },
     {
         id: "6001",
-        category: "anklet",
+        category: "anklets",
         article: "String",
         price: 29.99,
         date: "2025-12-05",
@@ -271,7 +271,7 @@ export const itemData = [
     },
     {
         id: "6002",
-        category: "anklet",
+        category: "anklets",
         article: "Beaded",
         price: 39.99,
         date: "2025-12-20",
@@ -281,7 +281,7 @@ export const itemData = [
     },
     {
         id: "6003",
-        category: "anklet",
+        category: "anklets",
         article: "Braided",
         price: 49.99,
         date: "2026-2-15",
@@ -291,7 +291,7 @@ export const itemData = [
     },
     {
         id: "6004",
-        category: "anklet",
+        category: "anklets",
         article: "Demi-fine",
         price: 59.99,
         date: "2026-2-15",
@@ -301,7 +301,7 @@ export const itemData = [
     },
     {
         id: "7001",
-        category: "other",
+        category: "others",
         article: "Gold Plated Wrist Watch",
         price: 129.99,
         date: "2025-12-20",
@@ -311,7 +311,7 @@ export const itemData = [
     },
     {
         id: "7002",
-        category: "other",
+        category: "others",
         article: "Gold Plated Pocket Watch",
         price: 299.99,
         date: "2026-1-15",
@@ -321,7 +321,7 @@ export const itemData = [
     },
     {
         id: "7003",
-        category: "other",
+        category: "others",
         article: "Gold Plated Belt",
         price: 39.99,
         date: "2026-2-15",
@@ -331,7 +331,7 @@ export const itemData = [
     },
     {
         id: "7004",
-        category: "other",
+        category: "others",
         article: "Gold Plated Lighter",
         price: 29.99,
         date: "2026-3-15",

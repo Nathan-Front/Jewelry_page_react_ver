@@ -1,5 +1,5 @@
-function ShopNinthSection({ filterHandler }) {
-  const other = filterHandler.filter((item) => item.category === "other");
+function ShopNinthSection({ filterHandler, setIsModal }) {
+  const other = filterHandler.filter((item) => item.category === "others");
   return (
     <>
       <section className="shop-item-section" id="other-section">
@@ -27,7 +27,7 @@ function ShopNinthSection({ filterHandler }) {
                     <button
                       type="button"
                       className="buy-now-btn"
-                      data-item="other"
+                      onClick={() => setIsModal(item)}
                     >
                       Buy now
                     </button>

@@ -7,6 +7,7 @@ import ShopSixthSection from "./shopSixthSection.jsx";
 import ShopSeventhSection from "./shopSeventhSection.jsx";
 import ShopEigthSection from "./shopEigthSection.jsx";
 import ShopNinthSection from "./shopNinthSection.jsx";
+import CheckItem from "./shopInner/checkItem.jsx";
 import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Suspense } from "react";
@@ -49,6 +50,8 @@ function Shop() {
     return result;
   }, [isFilter]);
 
+  const [isModal, setIsModal] = useState("");
+
   return (
     <Suspense fallback={<div>Loading data...</div>}>
       <ShopFirstSection
@@ -58,29 +61,54 @@ function Shop() {
         setIsFilter={setIsFilter}
       />
       {(isRadio === "all-section" || isRadio === "earrings-section") && (
-        <ShopSecondSection filterHandler={filterHandler} />
+        <ShopSecondSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "necklaces-section") && (
-        <ShopThirdSection filterHandler={filterHandler} />
+        <ShopThirdSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "bracelets-section") && (
-        <ShopFourthSection filterHandler={filterHandler} />
+        <ShopFourthSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "rings-section") && (
-        <ShopFifthSection filterHandler={filterHandler} />
+        <ShopFifthSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "bangles-section") && (
-        <ShopSixthSection filterHandler={filterHandler} />
+        <ShopSixthSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "tiaras-section") && (
-        <ShopSeventhSection filterHandler={filterHandler} />
+        <ShopSeventhSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "anklets-section") && (
-        <ShopEigthSection filterHandler={filterHandler} />
+        <ShopEigthSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
       {(isRadio === "all-section" || isRadio === "others-section") && (
-        <ShopNinthSection filterHandler={filterHandler} />
+        <ShopNinthSection
+          filterHandler={filterHandler}
+          setIsModal={setIsModal}
+        />
       )}
+      <CheckItem isModal={isModal} setIsModal={setIsModal} />
     </Suspense>
   );
 }

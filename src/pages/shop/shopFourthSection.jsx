@@ -1,5 +1,7 @@
-function ShopFourthSection({ filterHandler }) {
-  const bracelet = filterHandler.filter((item) => item.category === "bracelet");
+function ShopFourthSection({ filterHandler, setIsModal }) {
+  const bracelet = filterHandler.filter(
+    (item) => item.category === "bracelets",
+  );
   return (
     <>
       <section className="shop-item-section" id="bracelets-section">
@@ -27,7 +29,7 @@ function ShopFourthSection({ filterHandler }) {
                     <button
                       type="button"
                       className="buy-now-btn"
-                      data-item="bracelet"
+                      onClick={() => setIsModal(item)}
                     >
                       Buy now
                     </button>

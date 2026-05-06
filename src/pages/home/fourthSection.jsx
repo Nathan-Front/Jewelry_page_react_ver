@@ -51,7 +51,8 @@ function FourthSection() {
         setIsError(false);
         setIsInput(initialForm);
       }
-    } catch (e) {
+    } catch (error) {
+      console.error(error);
       alert("An error occurred. Please try again later.");
     } finally {
       setIsSending(false);
