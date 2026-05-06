@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-function Navigation() {
+function Navigation({ setIsCart }) {
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "SHOP", path: "/shop" },
@@ -38,7 +38,12 @@ function Navigation() {
                 </a>
               </li>
               <li>
-                <button type="button" className="cart-button" id="show-cart">
+                <button
+                  type="button"
+                  className="cart-button"
+                  id="show-cart"
+                  onClick={() => setIsCart(true)}
+                >
                   <img
                     src="./images/navigation/icon-cart-white.svg"
                     alt="cart"
