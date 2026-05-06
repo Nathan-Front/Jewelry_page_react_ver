@@ -1,6 +1,0 @@
-export const bangleData = [
-    {article: "Solid Metal", price:"69.99", date: "2025-12-03", rating:"90", src:"./images/shop/bangles/solidMetal.webp", description: "Clean and timeless, these solid metal bangles feature a smooth, structured design with a minimalist finish. Durable and versatile, they add a refined touch whether worn alone or stacked."},
-    {article: "Cuff", price:"99.99", date: "2026-1-10", rating:"85", src:"./images/shop/bangles/cuff.webp", description: "Sleek and open-ended, these cuff bangles feature a clean, structured design for effortless wear. Minimal yet bold, they add a refined statement to both everyday and elevated looks."},
-    {article: "Lacquer", price:"39.99", date: "2026-2-15", rating:"88", src:"./images/shop/bangles/lacquer.webp", description: "Smooth and refined, these lacquer bangles feature a clean, glossy finish with a minimalist silhouette. Lightweight and versatile, they add a subtle touch of color and polish to any look."},
-    {article: "Hinged", price:"59.99", date: "2026-4-01", rating:"80", src:"./images/shop/bangles/hinged.webp", description: "Clean and structured, these hinged bangles feature a smooth silhouette with an easy open-and-close design. Minimal yet refined, they offer a polished touch for both everyday wear and elevated looks."},
-];

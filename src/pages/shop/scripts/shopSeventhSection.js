@@ -1,6 +1,0 @@
-export const tiaraData = [
-    {article: "Fringe", price:"119.99", date: "2025-11-15", rating:"92", src:"./images/shop/tiara/fringe.webp", description: "Delicate yet striking, this fringed tiara features fine, cascading elements in a clean, structured design. Light-catching and refined, it adds a subtle statement with a minimalist elegance."},
-    {article: "Meander", price:"149.99", date: "2025-12-01", rating:"88", src:"./images/shop/tiara/meander.webp", description: "Structured and timeless, this meander tiara features a clean Greek key pattern with a refined, geometric flow. Minimal yet distinctive, it brings a subtle sense of symmetry and elegance to any look."},
-    {article: "Aigrette", price:"175.00", date: "2026-1-15", rating:"87", src:"./images/shop/tiara/aigrette.webp", description: "Graceful and refined, this aigrette tiara features a feather-like silhouette with delicate, flowing lines. Light-catching and elegant, it adds a subtle statement while maintaining a minimalist feel."},
-    {article: "Bandeau", price:"160.00", date: "2026-2-15", rating:"85", src:"./images/shop/tiara/bandeau.webp", description: "Sleek and structured, this bandeau tiara features a clean, low-profile design that sits gracefully along the head. Minimal yet refined, it offers a modern take on classic elegance."},
-];

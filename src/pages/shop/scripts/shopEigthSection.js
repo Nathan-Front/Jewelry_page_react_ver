@@ -1,6 +1,0 @@
-export const ankletData = [
-    {article: "String", price:"29.99", date: "2025-12-05", rating:"90", src:"./images/shop/anklet/stringAnklet.webp", description: "Light and effortless, this string anklet features a fine cord design with a clean, minimalist finish. Subtle and versatile, it adds a relaxed touch of elegance to everyday wear."},
-    {article: "Beaded", price:"39.99", date: "2025-12-20", rating:"85", src:"./images/shop/anklet/beadedAnklet.webp", description: "Delicate and refined, this beaded anklet features a simple arrangement of fine beads for a clean, balanced look. Minimal yet expressive, it adds a subtle touch of texture to everyday wear."},
-    {article: "Braided", price:"49.99", date: "2026-1-10", rating:"88", src:"./images/shop/anklet/braidedAnklet.webp", description: "Simple and textured, this braided anklet features a clean woven design with a soft, minimalist finish. Lightweight and easy to wear, it adds a relaxed, understated touch to any look."},
-    {article: "Demi-fine", price:"59.99", date: "2026-2-15", rating:"82", src:"./images/shop/anklet/demiFineAnklet.webp", description: "Refined and delicate, this demi-fine anklet features a slim chain with subtle detailing in a clean, minimalist design. Light-catching yet understated, it adds a polished touch to everyday wear."},
-];

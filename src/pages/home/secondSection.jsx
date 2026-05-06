@@ -5,9 +5,9 @@ function SecondSection() {
     { link: "earrings-section" },
     { link: "necklaces-section" },
     { link: "bracelets-section" },
-    { link: "ring-section" },
+    { link: "rings-section" },
     { link: "bangles-section" },
-    { link: "tiara-section" },
+    { link: "tiaras-section" },
     { link: "anklet-section" },
     { link: "other-section" },
   ];

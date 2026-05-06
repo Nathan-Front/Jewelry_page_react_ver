@@ -75,12 +75,11 @@
     color: #C9A96E;
     font-weight: 600;
 }
-.hidden {
-    display: none !important;
-}
 .no-release-msg {
+    grid-column: 1/-1;
     text-align: center;
     font-weight: bold;
+    color: #C9A96E;
 }
 @media only screen and (max-width: 599px) {
     .shop-item-section> article> ul> li {
