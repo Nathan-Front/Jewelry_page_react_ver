@@ -7,9 +7,24 @@ import ShopSixthSection from "./shopSixthSection.jsx";
 import ShopSeventhSection from "./shopSeventhSection.jsx";
 import ShopEigthSection from "./shopEigthSection.jsx";
 import ShopNinthSection from "./shopNinthSection.jsx";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Suspense } from "react";
 function Shop() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [hash]);
   return (
-    <>
+    <Suspense fallback={<div>Loading data...</div>}>
       <ShopFirstSection />
       <ShopSecondSection />
       <ShopThirdSection />
@@ -19,7 +34,7 @@ function Shop() {
       <ShopSeventhSection />
       <ShopEigthSection />
       <ShopNinthSection />
-    </>
+    </Suspense>
   );
 }
 

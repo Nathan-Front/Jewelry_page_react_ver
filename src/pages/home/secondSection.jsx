@@ -1,5 +1,21 @@
 import { secondData } from "./scripts/secondSection.js";
+import { useNavigate } from "react-router-dom";
 function SecondSection() {
+  const childLinks = [
+    { link: "earrings-section" },
+    { link: "necklaces-section" },
+    { link: "bracelets-section" },
+    { link: "ring-section" },
+    { link: "bangles-section" },
+    { link: "tiara-section" },
+    { link: "anklet-section" },
+    { link: "other-section" },
+  ];
+  const navigate = useNavigate();
+  const linkHandler = (index) => {
+    const clickedIndex = childLinks[index].link;
+    navigate(`/shop#${clickedIndex}`);
+  };
   return (
     <>
       <section className="home-second-section">
@@ -29,7 +45,7 @@ function SecondSection() {
                   <button
                     type="button"
                     className="to-shop-item"
-                    data-category="earrings"
+                    onClick={() => linkHandler(index)}
                   >
                     Check Item
                   </button>
