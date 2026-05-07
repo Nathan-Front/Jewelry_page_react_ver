@@ -3,9 +3,15 @@ import { modalImages } from "./scripts/modalImg.js";
 import { addToCart } from "./scripts/addItemCart.js";
 
 import { useEffect, useState } from "react";
-function CheckItem({ isModal, setIsModal, setIsCartCount }) {
+function CheckItem({
+  isModal,
+  setIsModal,
+  isCount,
+  setIsCount,
+  setIsCartCount,
+  setCartContent,
+}) {
   const modal = modalImages(isModal?.category) || [];
-
   useEffect(() => {
     if (isModal) {
       document.body.classList.add("no-scroll");
@@ -17,15 +23,19 @@ function CheckItem({ isModal, setIsModal, setIsCartCount }) {
     };
   }, [isModal]);
 
-  const [isCount, setIsCount] = useState(1);
-
   const [clickedImage, setClickedImage] = useState("");
   const mainImage = clickedImage || isModal?.src;
   const addItemToCart = () => {
     const result = addToCart(isModal, isCount);
+    if (!result.success) {
+      alert("Same item already in your cart.");
+      setIsModal("");
+      setClickedImage("");
+    }
     if (result?.success) {
       alert("Item added in your cart.");
       setIsCartCount(result.cartCount);
+      setCartContent(result.cartContent);
       setIsModal("");
       setClickedImage("");
       setIsCount(1);
