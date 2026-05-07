@@ -1,8 +1,11 @@
 import { paymentCards } from "./scripts/paymentCard.js";
 import { modalImages } from "./scripts/modalImg.js";
+import { addToCart } from "./scripts/addItemCart.js";
+
 import { useEffect, useState } from "react";
-function CheckItem({ isModal, setIsModal }) {
+function CheckItem({ isModal, setIsModal, setIsCartCount }) {
   const modal = modalImages(isModal?.category) || [];
+
   useEffect(() => {
     if (isModal) {
       document.body.classList.add("no-scroll");
@@ -18,6 +21,17 @@ function CheckItem({ isModal, setIsModal }) {
 
   const [clickedImage, setClickedImage] = useState("");
   const mainImage = clickedImage || isModal?.src;
+  const addItemToCart = () => {
+    const result = addToCart(isModal, isCount);
+    if (result?.success) {
+      alert("Item added in your cart.");
+      setIsCartCount(result.cartCount);
+      setIsModal("");
+      setClickedImage("");
+      setIsCount(1);
+    }
+  };
+
   return (
     <>
       <article
@@ -51,7 +65,7 @@ function CheckItem({ isModal, setIsModal }) {
             >
               -
             </button>
-            <span id="item-count">{isCount}</span>
+            <span>{isCount}</span>
             <button
               type="button"
               className="increase-count"
@@ -71,7 +85,7 @@ function CheckItem({ isModal, setIsModal }) {
             >
               Cancel
             </button>
-            <button type="button" id="add-to-cart-btn">
+            <button type="button" onClick={addItemToCart}>
               Add to Cart
             </button>
           </div>

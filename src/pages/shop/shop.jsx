@@ -12,7 +12,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Suspense } from "react";
 import { itemData } from "./scripts/shopData.js";
-function Shop() {
+function Shop({ setIsCartCount }) {
   const { hash } = useLocation();
   useEffect(() => {
     if (hash) {
@@ -108,7 +108,11 @@ function Shop() {
           setIsModal={setIsModal}
         />
       )}
-      <CheckItem isModal={isModal} setIsModal={setIsModal} />
+      <CheckItem
+        isModal={isModal}
+        setIsModal={setIsModal}
+        setIsCartCount={setIsCartCount}
+      />
     </Suspense>
   );
 }

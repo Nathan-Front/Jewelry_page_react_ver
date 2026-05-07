@@ -8,14 +8,19 @@ import Shop from "./pages/shop/shop.jsx";
 import Cart from "./pages/cart/cart.jsx";
 function App() {
   const [isCart, setIsCart] = useState(false);
+
+  const [isCartCount, setIsCartCount] = useState(0);
   return (
     <HashRouter>
-      <Navigation setIsCart={setIsCart} />
+      <Navigation setIsCart={setIsCart} isCartCount={isCartCount} />
       <MobileNav />
-      <Cart isCart={isCart} setIsCart={setIsCart} />
+      <Cart isCart={isCart} setIsCart={setIsCart} isCartCount={isCartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/shop"
+          element={<Shop setIsCartCount={setIsCartCount} />}
+        />
       </Routes>
       <Footer />
     </HashRouter>

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-function Navigation({ setIsCart }) {
+function Navigation({ setIsCart, isCartCount }) {
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "SHOP", path: "/shop" },
     { name: "ABOUT", path: "/about" },
     { name: "CONTACT", path: "/contact" },
   ];
+
   return (
     <>
       <nav className="nav-main-wrapper">
@@ -49,7 +50,7 @@ function Navigation({ setIsCart }) {
                     alt="cart"
                   />
                   <span className="tooltip-cart">Cart</span>
-                  <span id="cart-count">0</span>
+                  <span>{isCartCount}</span>
                 </button>
               </li>
             </ul>

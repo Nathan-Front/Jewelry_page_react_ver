@@ -1,6 +1,6 @@
 import { paymentCards } from "../shop/shopInner/scripts/paymentCard.js";
 import { useEffect } from "react";
-function Cart({ isCart, setIsCart }) {
+function Cart({ isCart, setIsCart, isCartCount }) {
   useEffect(() => {
     if (isCart) {
       document.body.classList.add("no-scroll");
@@ -11,6 +11,7 @@ function Cart({ isCart, setIsCart }) {
       document.body.classList.remove("no-scroll");
     };
   }, [isCart]);
+
   return (
     <>
       <dialog
@@ -21,7 +22,11 @@ function Cart({ isCart, setIsCart }) {
         <div className="upper-portion">
           <div className="cart-dialog">
             <p>
-              Your cart <span id="cart-item-counter">0 item</span>
+              Your cart{" "}
+              <span>
+                {isCartCount}
+                {isCartCount > 1 ? " items" : " item"}
+              </span>
             </p>
             <button type="button" onClick={() => setIsCart(false)}>
               Close
