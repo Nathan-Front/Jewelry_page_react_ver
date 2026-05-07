@@ -203,8 +203,8 @@
     gap: 1rem;
 }
 .refund-policy-wrap> p,
-.refund-policy-wrap> ul,
-.refund-policy-wrap> ul> li> p {
+.refund-policy-wrap> div> ul,
+.refund-policy-wrap> div> ul> li> p {
     margin: 0;
     font-size: clamp(0.8rem, 1.2vw, 1.5rem);
 }
@@ -216,7 +216,7 @@
     font-size: clamp(1.3rem, 1.5vw, 2rem) !important;
     font-weight: bold;
 }
-.refund-policy-wrap> ul {
+.refund-policy-wrap> div> ul {
     list-style: disc;
 }
 .spinner {

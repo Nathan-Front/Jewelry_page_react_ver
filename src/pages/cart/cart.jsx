@@ -1,13 +1,26 @@
 import { paymentCards } from "../shop/shopInner/scripts/paymentCard.js";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function Cart({
   isCart,
   setIsCart,
   isCartCount,
   cartContent,
   quantityHandler,
-  deleteHandler,
+  setIsCartCount,
+  setCartContent,
 }) {
+  const navigate = useNavigate();
+  const checkoutHandler = () => {
+    if (isCartCount > 0) {
+      setIsCart(false);
+      navigate("/checkout");
+    } else {
+      alert("No item in your cart.");
+      setIsCart(false);
+      navigate("/shop");
+    }
+  };
   useEffect(() => {
     if (isCart) {
       document.body.classList.add("no-scroll");
@@ -18,6 +31,23 @@ function Cart({
       document.body.classList.remove("no-scroll");
     };
   }, [isCart]);
+
+  //cart item delete
+
+  const deleteHandler = (itemId) => {
+    const savedCart = JSON.parse(sessionStorage.getItem("cartItem")) || [];
+    const removeItem = savedCart.filter((item) => item.itemID !== itemId);
+    sessionStorage.setItem("cartItem", JSON.stringify(removeItem));
+    setCartContent(removeItem);
+    const newCartCount = removeItem.reduce((sum, qty) => sum + qty.quantity, 0);
+    setIsCartCount(newCartCount);
+    alert("Item removed from cart.");
+    if (newCartCount === 0) {
+      alert("No item inside your cart.");
+      setIsCart(false);
+      navigate("/shop");
+    }
+  };
 
   return (
     <>
@@ -92,18 +122,18 @@ function Cart({
                   .toFixed(2)}
               </span>
             </p>
-            <button type="button" id="to-checkout">
+            <button className="to-checkout" onClick={checkoutHandler}>
               Proceed to Checkout
             </button>
           </div>
           <div className="payment-methods">
             <p>We accept:</p>
             <ul>
-              {paymentCards.map((item, index) => {
+              {paymentCards.map((item, index) => (
                 <li key={index}>
                   <img src={item.src} alt={item.alt + "-image"} />
-                </li>;
-              })}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

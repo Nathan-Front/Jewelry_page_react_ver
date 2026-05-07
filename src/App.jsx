@@ -6,6 +6,7 @@ import Footer from "./pages/footer/footer.jsx";
 import Home from "./pages/home/home.jsx";
 import Shop from "./pages/shop/shop.jsx";
 import Cart from "./pages/cart/cart.jsx";
+import Checkout from "./pages/checkout/checkout.jsx";
 function App() {
   //counter for popup modal
   const [isCount, setIsCount] = useState(1);
@@ -53,16 +54,6 @@ function App() {
     sessionStorage.setItem("cartItem", JSON.stringify(updateQty));
   };
 
-  //cart item delete
-  const deleteHandler = (itemId) => {
-    const savedCart = JSON.parse(sessionStorage.getItem("cartItem")) || [];
-    const removeItem = savedCart.filter((item) => item.itemID !== itemId);
-    sessionStorage.setItem("cartItem", JSON.stringify(removeItem));
-    setCartContent(removeItem);
-    const newCartCount = removeItem.reduce((sum, qty) => sum + qty.quantity, 0);
-    setIsCartCount(newCartCount);
-    alert("Item removed from cart.");
-  };
   return (
     <HashRouter>
       <Navigation setIsCart={setIsCart} isCartCount={isCartCount} />
@@ -73,7 +64,8 @@ function App() {
         isCartCount={isCartCount}
         cartContent={cartContent}
         quantityHandler={quantityHandler}
-        deleteHandler={deleteHandler}
+        setIsCartCount={setIsCartCount}
+        setCartContent={setCartContent}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -87,6 +79,10 @@ function App() {
               setCartContent={setCartContent}
             />
           }
+        />
+        <Route
+          path="/checkout"
+          element={<Checkout cartContent={cartContent} />}
         />
       </Routes>
       <Footer />
