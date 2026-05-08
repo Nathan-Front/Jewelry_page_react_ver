@@ -7,6 +7,7 @@ import Home from "./pages/home/home.jsx";
 import Shop from "./pages/shop/shop.jsx";
 import Cart from "./pages/cart/cart.jsx";
 import Checkout from "./pages/checkout/checkout.jsx";
+import About from "./pages/about/about.jsx";
 function App() {
   //counter for popup modal
   const [isCount, setIsCount] = useState(1);
@@ -84,6 +85,7 @@ function App() {
           path="/checkout"
           element={<Checkout cartContent={cartContent} />}
         />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </HashRouter>
