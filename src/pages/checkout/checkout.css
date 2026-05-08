@@ -10,37 +10,68 @@
     display: flex;
     gap: 10px;
 }
-.form-summary-wrap> form {
+.form-summary-wrap> div {
     flex: 40%;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 .container-title {
     margin: 0 0 1.5rem 0;
     font-size: clamp(1.1rem, 2vw, 2rem);
 }
-.form-summary-wrap> form> label,
-.form-summary-wrap> form> input,
-.form-summary-wrap> form> select,
-.form-summary-wrap> form> button,
-.paypal-container,
+.form-summary-wrap> div> label,
+.form-summary-wrap> div> input,
+.form-summary-wrap> div> select,
+.form-summary-wrap> div> button,
+#paypal-button-container,
 .divider {
     width: 90%;
 }
-.form-summary-wrap> form> input,
-.form-summary-wrap> form> select {
+.payment-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    z-index: 9999;
+    font-size: 14px;
+    opacity: 0;
+    animation: popupFade 5s ease forwards;
+}
+@keyframes popupFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+.form-summary-wrap> div> input,
+.form-summary-wrap> div> select {
     padding: 5px;
     margin-bottom: 1rem;
     border: 1px solid #d7d7d7;
     background: #fff;
 }
-.form-summary-wrap> form> input {
+.form-summary-wrap> div> input {
     border-radius: 10px;
     padding: 14px;
     border: 1px solid #ddd;
     transition: .2s;
 }
-.form-summary-wrap> form> input:focus {
+.form-summary-wrap> div> input:focus {
     border-color: #c9a24d;
     box-shadow: 0 0 0 3px rgba(201,162,77,.15);
 }
@@ -172,14 +203,18 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
-    .checkout-form {
+    #paypal-button-container {
+        width: 100%;
+    }
+    .checkout-container {
+        width: 100%;
         grid-row: 2 / 3;
         margin-top: 1.5rem;
     }
-    .form-summary-wrap> form> label,
-    .form-summary-wrap> form> input,
-    .form-summary-wrap> form> select,
-    .form-summary-wrap> form> button,
+    .form-summary-wrap> div> label,
+    .form-summary-wrap> div> input,
+    .form-summary-wrap> div> select,
+    .form-summary-wrap> div> button,
     .paypal-container,
     .divider {
         width: 100%;

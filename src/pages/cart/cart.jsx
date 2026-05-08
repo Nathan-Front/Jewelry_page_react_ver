@@ -33,7 +33,6 @@ function Cart({
   }, [isCart]);
 
   //cart item delete
-
   const deleteHandler = (itemId) => {
     const savedCart = JSON.parse(sessionStorage.getItem("cartItem")) || [];
     const removeItem = savedCart.filter((item) => item.itemID !== itemId);

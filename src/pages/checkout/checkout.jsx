@@ -1,55 +1,160 @@
 import { paymentCards } from "../shop/shopInner/scripts/paymentCard";
 import { returnPolicyData } from "./scripts/policy.js";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useState, useMemo, useEffect } from "react";
 function Checkout({ cartContent }) {
+  const [formData, setFormData] = useState({
+    contact: "",
+    address: "",
+    address2: "",
+  });
+
+  const initialOptions = {
+    "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
+
+    currency: "USD",
+    intent: "capture",
+  };
+
+  const grandTotal = useMemo(
+    () => cartContent.reduce((sum, item) => sum + item.subTotal * 1.1, 0),
+    [cartContent],
+  );
+
+  const [paymentMessage, setPaymentMessage] = useState("");
+  //Message after successful payment
+  useEffect(() => {
+    const savedMessage = sessionStorage.getItem("paymentMessage");
+    if (savedMessage) {
+      const timer = setTimeout(() => {
+        setPaymentMessage(savedMessage);
+        sessionStorage.removeItem("paymentMessage");
+        setTimeout(() => {
+          setPaymentMessage("");
+        }, 5000);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   return (
     <>
       <section className="summary-section">
         <div className="form-summary-wrap">
-          <form action="" className="checkout-form" id="checkout-form">
-            <p className="container-title">Billing Info:</p>
-            <label htmlFor="contact">Contact:</label>
-            <input
-              type="text"
-              id="contact"
-              name="contact"
-              placeholder="Contact number"
-              required
-            />
-            <label htmlFor="address">Address 1:</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Address 1 (State, city, block/street, building #, etc.)"
-              required
-            />
-            <label htmlFor="address2">Address 2:</label>
-            <input
-              type="text"
-              id="address2"
-              name="address2"
-              placeholder="Address 2 (optional)"
-            />
-            <input
-              type="text"
-              name="_honey"
-              style={{
-                position: "absolute",
-                left: "-999999px",
-              }}
-              tabIndex="-1"
-              autoComplete="off"
-            />
-            <div className="divider"></div>
-            <p className="container-title payment-method-title">
-              Payment Method:
-            </p>
-            <div
-              className="paypal-container"
-              id="paypal-button-container"
-            ></div>
-            <p id="result-message"></p>
-          </form>
+          <PayPalScriptProvider options={initialOptions}>
+            <div className="checkout-container">
+              <p className="container-title">Shipping Info:</p>
+              {/* Your Form Inputs */}
+              <label htmlFor="contact">Contact:</label>
+              <input
+                id="contact"
+                value={formData.contact}
+                onChange={(e) =>
+                  setFormData({ ...formData, contact: e.target.value })
+                }
+                placeholder="Contact Info"
+                required
+              />
+              <label htmlFor="address">Address 1:</label>
+              <input
+                id="address"
+                value={formData.address}
+                onChange={(e) =>
+                  setFormData({ ...formData, address: e.target.value })
+                }
+                placeholder="Postal, City, Street/block"
+                required
+              />
+              <label htmlFor="address2">Address 2:</label>
+              <input
+                id="address2"
+                value={formData.address2}
+                onChange={(e) =>
+                  setFormData({ ...formData, address2: e.target.value })
+                }
+                placeholder="Building, room number etc"
+                required
+              />
+
+              <div id="paypal-button-container">
+                {paymentMessage && (
+                  <div className="payment-popup">{paymentMessage}</div>
+                )}
+                <PayPalButtons
+                  style={{ layout: "vertical", shape: "rect", color: "gold" }}
+                  //Validation Logic
+                  onClick={(data, actions) => {
+                    if (!formData.contact.trim() || !formData.address.trim()) {
+                      alert("Please fill the form first");
+                      return actions.reject();
+                    }
+                    if (cartContent.length === 0) {
+                      alert("You dont have item in your cart.");
+                      return actions.reject();
+                    }
+                    return actions.resolve();
+                  }}
+                  //Create Order (Backend Call)
+                  createOrder={async () => {
+                    const cartItem =
+                      JSON.parse(sessionStorage.getItem("cartItem")) || [];
+                    const response = await fetch(
+                      "http://localhost:8080/api/orders",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          cart: cartItem.map((item) => ({
+                            id: item.itemID,
+                            name: item.name,
+                            price: item.price,
+                            quantity: item.quantity,
+                          })),
+                          customerInfo: {
+                            contact: formData.contact,
+                            address1: formData.address,
+                            address2: formData.address2,
+                          },
+                        }),
+                      },
+                    );
+                    const data = await response.json();
+                    return data.id; //PayPal Order ID from backend
+                  }}
+                  //Capture Payment
+                  onApprove={async (data) => {
+                    try {
+                      const response = await fetch(
+                        `http://localhost:8080/api/orders/${data.orderID}/capture`,
+                        { method: "POST" },
+                      );
+
+                      const captureData = await response.json();
+
+                      if (
+                        captureData.paypal &&
+                        captureData.paypal.status === "COMPLETED"
+                      ) {
+                        sessionStorage.setItem(
+                          "paymentMessage",
+                          `Payment Successful!
+                            Order ID:
+                          ${captureData.googleSheet.orderId}`,
+                        );
+                        sessionStorage.removeItem("cartItem");
+                        window.location.reload();
+                        console.log(captureData);
+                      } else {
+                        setPaymentMessage("Payment failed to capture.");
+                      }
+                    } catch (error) {
+                      console.error("Capture Error:", error);
+                      alert("An error occurred during payment.");
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </PayPalScriptProvider>
           <div className="summary-header">
             <p className="container-title">Checkout Summary:</p>
             <div className="display-summary">
@@ -72,7 +177,12 @@ function Checkout({ cartContent }) {
             </div>
             <div className="payment-summary-card">
               <p>
-                Sub Total: $<span id="sub-total-price-summary">0</span>
+                Sub Total: $
+                <span>
+                  {cartContent
+                    .reduce((sum, item) => sum + item.subTotal, 0)
+                    .toFixed(2)}
+                </span>
               </p>
               <p className="shipping-fee">
                 Shipping Fee: <span id="shippingFee">free</span>
@@ -81,7 +191,7 @@ function Checkout({ cartContent }) {
                 Tax: <span id="tax-amount">10%</span>
               </p>
               <p className="total">
-                Total: $<span id="total-price-summary">0.00</span>
+                Total: $<span>{grandTotal.toFixed(2)}</span>
               </p>
             </div>
 
