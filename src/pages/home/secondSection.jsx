@@ -19,6 +19,7 @@ function SecondSection() {
   return (
     <>
       <section className="home-second-section">
+        <h2>Check our collections</h2>
         <ul className="item-list-wrap">
           {secondData.map((item, index) => (
             <li key={index}>

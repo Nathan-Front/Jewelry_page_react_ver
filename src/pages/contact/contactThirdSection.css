@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 50px;
+    padding: 50px 0 80px 0;
 }
 .contact-third-section> h3 {
     font-size: clamp(1.5rem, 3vw, 3rem);
@@ -29,7 +29,7 @@
     gap: 5px;
 }
 .faq-list {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -63,6 +63,9 @@
 }
 
 @media only screen and (max-width: 599px) {
+    .contact-third-section {
+        padding: 30px 0 50px 0;
+    }
     .faq-list {
         width: 90%;
     }

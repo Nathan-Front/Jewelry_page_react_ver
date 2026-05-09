@@ -95,10 +95,13 @@ legend {
     flex: 1;
     height: clamp(20px, 10vw, 50px);
 }
+.filter-category> li> button:hover {
+    background-color: #8c6b2f; 
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
 .filter-category> li> button.activeSortBtn {
     background-color: #8c6b2f; 
     box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.4);
-   
 }   
 @media only screen and (max-width: 599px) {
     .shop-first-section> h1 {

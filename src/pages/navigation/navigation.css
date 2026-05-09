@@ -144,7 +144,14 @@
     justify-content: center;
 }
 @media only screen and (max-width: 599px) {
+    .nav-main-wrapper  {
+        padding: 0;
+    }
     .links {
         display: none;
+    }
+    .nav-policy-cart-wrap> li:first-child> a> img,
+    .cart-button> img {
+        width: 25px;
     }
 }

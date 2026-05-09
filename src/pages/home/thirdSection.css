@@ -1,6 +1,6 @@
 .home-third-section {
     width: 100%;
-    padding: 30px 0;
+    padding: 80px 0;
     display: flex;
 }
 .our-story-wrap {
@@ -52,6 +52,7 @@
     .home-third-section {
         flex-direction: column;
         gap: 1em;
+        padding: 30px 0;
     }
     .our-story-wrap {
         width: 80%;

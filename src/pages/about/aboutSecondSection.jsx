@@ -15,8 +15,8 @@ function AboutSecondSection() {
           {aboutSecondContent.map((item, index) => (
             <React.Fragment key={index}>
               {item.title && <h3>{item.title}</h3>}
-              {item.description.map((text) => (
-                <p>{text.paragraph}</p>
+              {item.description.map((text, i) => (
+                <p key={i}>{text.paragraph}</p>
               ))}
             </React.Fragment>
           ))}

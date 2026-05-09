@@ -1,7 +1,7 @@
 .home-fourth-section {
     width: 100%;
     display: flex;
-    padding: 50px 0;
+    padding: 80px 0;
 }
 .home-fourth-section> div {
     flex: 1;
@@ -69,6 +69,7 @@
     .home-fourth-section {
         flex-direction: column;
         gap: 2em;
+        padding: 30px 0;
     }
     .home-fourth-section> div {
         width: 80%;

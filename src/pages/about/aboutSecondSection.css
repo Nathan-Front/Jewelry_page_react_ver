@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 50px 0;
+    padding: 80px 0;
 }
 .about-second-section> img {
     width: clamp(20%, 45vw, 90%);
@@ -29,6 +29,7 @@
     .about-second-section {
         flex-direction: column;
         gap: 1em;
+        padding: 30px 0;
     }
     .about-second-section> img {
         width: 80%;

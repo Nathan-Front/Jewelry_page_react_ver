@@ -2,7 +2,7 @@
 .shop-item-section {
     width: 100%;
     padding: 0;
-    padding: 50px 0 30px 0;
+    padding: 50px 0;
 }
 .shop-item-section> article {
     text-align: center;
@@ -35,12 +35,12 @@
 .item-wrap> img {
     width: 100%;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
-    
+    aspect-ratio: 1 / 1;   
 }
 .item-wrap> h3 {
     margin: 10px 0 5px 0;
     font-size: clamp(1.1rem, 1.5vw, 2rem);
+    color: #C9A96E;
 }
 .item-wrap> p {
     margin: 0;

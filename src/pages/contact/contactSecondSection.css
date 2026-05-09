@@ -1,7 +1,7 @@
 .contact-second-section {
     width: 100%;
     display: flex;
-    padding-bottom: 50px;
+    padding: 50px 0;
 }
 .contact-second-section> img {
     width: clamp(50%, 45vw, 90%);
@@ -44,6 +44,7 @@
     .contact-second-section {
         flex-direction: column;
         gap: 1rem;
+        padding: 30px 0;
     }
     .contact-second-section> img {
         width: 80%;

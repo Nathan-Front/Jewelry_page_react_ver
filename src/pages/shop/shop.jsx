@@ -53,7 +53,7 @@ function Shop({ isCount, setIsCount, setIsCartCount, setCartContent }) {
   const [isModal, setIsModal] = useState("");
 
   return (
-    <Suspense fallback={<div>Loading data...</div>}>
+    <Suspense fallback={<div>Loading content...</div>}>
       <ShopFirstSection
         isRadio={isRadio}
         setIsRadio={setIsRadio}
