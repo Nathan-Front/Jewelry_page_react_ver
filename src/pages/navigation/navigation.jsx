@@ -30,13 +30,13 @@ function Navigation({ setIsCart, isCartCount }) {
           <li>
             <ul className="nav-policy-cart-wrap">
               <li>
-                <a href="policy.html">
+                <Link to="/policy">
                   <img
                     src="./images/navigation/return-box-cycle-svgrepo-com.svg"
                     alt=""
                   />
                   <span className="tooltip-box">Refund policy</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <button

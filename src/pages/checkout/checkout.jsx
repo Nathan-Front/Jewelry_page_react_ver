@@ -76,7 +76,7 @@ function Checkout({ cartContent }) {
               />
 
               <div id="paypal-button-container">
-                {paymentMessage && (
+                {paymentMessage && ( //Message after successful payment
                   <div className="payment-popup">{paymentMessage}</div>
                 )}
                 <PayPalButtons
