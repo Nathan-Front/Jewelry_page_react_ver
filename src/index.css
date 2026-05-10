@@ -23,6 +23,7 @@ a, p, span, h1, h2, h3, h4, h5, label, input, button, legend, div {
 }
 a, button, input, textarea {
     border-radius: 10px;
+    font-family: "Poppins", sans-serif;
 }
 button:hover {
     cursor: pointer;
