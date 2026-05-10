@@ -1,3 +1,5 @@
+import { fourthSectionContent } from "./scripts/fourthSection.js";
+import React from "react";
 import { validateEmail } from "../../assets/script/emailValidator.js";
 import { useState } from "react";
 function FourthSection() {
@@ -62,70 +64,65 @@ function FourthSection() {
   return (
     <>
       <section className="home-fourth-section">
-        <div>
-          <h3>Get in Touch</h3>
-          <p>We love to hear from you!</p>
-        </div>
-        <form action="" id="form" onSubmit={submitHandler}>
-          <label htmlFor="name-input">Name</label>
-          <input
-            type="text"
-            placeholder="Enter your name"
-            name="userName"
-            id="name-input"
-            value={isInput.userName}
-            onChange={inputHandler}
-            required
-          />
-          <label htmlFor="mail-input">Email address</label>
-          <input
-            type="text"
-            placeholder="Enter email"
-            name="userEmail"
-            id="mail-input"
-            className={`${isError ? "input-error" : ""}`}
-            value={isInput.userEmail}
-            onChange={inputHandler}
-            required
-          />
-          <label htmlFor="contact-input">Contact number</label>
-          <input
-            type="text"
-            placeholder="Enter contact"
-            name="userContact"
-            id="contact-input"
-            value={isInput.userContact}
-            onChange={inputHandler}
-            required
-          />
-          <textarea
-            name="userMessage"
-            id="message-input"
-            placeholder="Message"
-            value={isInput.userMessage}
-            onChange={inputHandler}
-            required
-          ></textarea>
-          <input
-            type="text"
-            name="_honey"
-            value={isInput._honey}
-            onChange={inputHandler}
-            style={{
-              position: "absolute",
-              left: "-999999px",
-            }}
-            tabIndex="-1"
-            autoComplete="off"
-          />
-          <button type="submit" disabled={isSending}>
-            <span
-              id="message-loader"
-              className={`${isSending ? "spinner" : ""}`}
-            ></span>
-            <span id="btn-text"> {isSending ? "Sending..." : "Submit"}</span>
-          </button>
-        </form>
+        {fourthSectionContent.map((item, index) => (
+          <React.Fragment key={index}>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.txt}</p>
+            </div>
+            <form action="" id="form" onSubmit={submitHandler}>
+              {item.formContent.map((inpt, i) => (
+                <React.Fragment key={i}>
+                  <label htmlFor={inpt.inputId}>{inpt.labelTag}</label>
+                  <input
+                    type="text"
+                    placeholder={inpt.holder}
+                    name={inpt.inputName}
+                    id={inpt.inputId}
+                    className={
+                      inpt.inputId === "mail-input" && isError
+                        ? "input-error"
+                        : ""
+                    }
+                    value={isInput[inpt.inputName]}
+                    onChange={inputHandler}
+                    required
+                  />
+                </React.Fragment>
+              ))}
+              <textarea
+                name="userMessage"
+                id="message-input"
+                placeholder="Message"
+                value={isInput.userMessage}
+                onChange={inputHandler}
+                required
+              ></textarea>
+              <input
+                type="text"
+                name="_honey"
+                value={isInput._honey}
+                onChange={inputHandler}
+                style={{
+                  position: "absolute",
+                  left: "-999999px",
+                }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+              <button type="submit" disabled={isSending}>
+                <span
+                  id="message-loader"
+                  className={`${isSending ? "spinner" : ""}`}
+                ></span>
+                <span id="btn-text">
+                  {" "}
+                  {isSending ? "Sending..." : "Submit"}
+                </span>
+              </button>
+            </form>
+          </React.Fragment>
+        ))}
       </section>
     </>
   );

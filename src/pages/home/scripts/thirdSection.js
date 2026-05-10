@@ -1,0 +1,3 @@
+export const thirdSectionContent = [
+    {title: "Our Story", src: "./images/about/banner/banner.webp", alt: "our image", btnLink: "Read More", paragraph: "At LUMINOSUS, we believe jewelry is more than an accessory—it is a quiet expression of identity, a reflection of moments that matter, and a piece of art meant to be lived in. Our journey began with a simple idea: to create pieces that feel timeless yet personal. Inspired by the soft glow of natural light and the elegance of minimal design, each creation is thoughtfully crafted to balance subtlety and sophistication."},
+];

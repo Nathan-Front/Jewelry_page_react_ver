@@ -35,7 +35,7 @@ function FifthSection() {
           <ul className="personalize-cards">
             {personalizeIcon.map((item, index) => (
               <li key={index}>
-                <img src={item.src} alt={item.alt + "-image"} />
+                <img src={item.src} alt={item.alt + "-image"} loading="lazy" />
                 <span>{item.txt}</span>
               </li>
             ))}
@@ -51,7 +51,11 @@ function FifthSection() {
             {personalizeProcess.map((item, index) => (
               <li key={index}>
                 <div>
-                  <img src={item.src} alt={item.alt + "-image"} />
+                  <img
+                    src={item.src}
+                    alt={item.alt + "-image"}
+                    loading="lazy"
+                  />
                 </div>
                 <span>{item.order}</span>
                 <span>{item.txt1}</span>
