@@ -1,88 +1,131 @@
-import {
-  personalizeTop,
-  personalizeTitles,
-  personalizeIcon,
-  personalizeProcess,
-  personalizeContact,
-} from "./scripts/fifthSection.js";
+import { fourthSectionContent } from "./scripts/fifthSection.js";
 import React from "react";
-
+import { validateEmail } from "../../assets/script/emailValidator.js";
+import { useState } from "react";
 function FifthSection() {
+  const initialForm = {
+    userName: "",
+    userEmail: "",
+    userContact: "",
+    userMessage: "",
+    _honey: "",
+  };
+  const [isInput, setIsInput] = useState(initialForm);
+
+  const inputHandler = (e) => {
+    const { name, value } = e.target;
+    setIsInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const [isError, setIsError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (isInput._honey) {
+      console.log("Bot detected");
+      return;
+    }
+    const result = validateEmail(isInput.userEmail);
+    if (!result) {
+      setIsError(true);
+      return;
+    }
+    setIsSending(true);
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbxTuHkao0mbf-4Om6zcoUdXFpd-cY3tfYAmZ29SuEPeWUJxcmhewotR7EvdvD4SyYue/exec";
+    const data = {
+      name: isInput.userName,
+      email: isInput.userEmail,
+      contact: isInput.userContact,
+      message: isInput.userMessage,
+    };
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      const result = await response.text();
+      if (result === "Success") {
+        alert("Thank you for your message!");
+        setIsError(false);
+        setIsInput(initialForm);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <>
-      <section className="home-fifth-section">
-        <div className="fifth-upper-wrap">
-          <div>
-            {personalizeTop.map((item, index) => (
-              <React.Fragment key={index}>
-                <span>{item.txt1}</span>
-                <span>{item.txt2}</span>
-                <span className="divider-star"></span>
-              </React.Fragment>
-            ))}
-          </div>
-          {personalizeTitles.map((item, index) => (
-            <React.Fragment key={index}>
-              <h2 className="personalize-title">{item.title}</h2>
-              <span className="personalize">{item.personal}</span>
-              <p className="personalize-subtitle">{item.subTitle}</p>
-              <p>{item.txt1}</p>
-              <p>{item.txt2}</p>
-              <p>{item.txt3}</p>
-            </React.Fragment>
-          ))}
-
-          <ul className="personalize-cards">
-            {personalizeIcon.map((item, index) => (
-              <li key={index}>
-                <img src={item.src} alt={item.alt + "-image"} loading="lazy" />
-                <span>{item.txt}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="personalize-divider">
-          <div className="how-it-work-divider-left"></div>
-          <div>HOW IT WORKS</div>
-          <div className="how-it-work-divider-right"></div>
-        </div>
-        <div className="fifth-lower-wrap">
-          <ul>
-            {personalizeProcess.map((item, index) => (
-              <li key={index}>
-                <div>
-                  <img
-                    src={item.src}
-                    alt={item.alt + "-image"}
-                    loading="lazy"
-                  />
-                </div>
-                <span>{item.order}</span>
-                <span>{item.txt1}</span>
-                <p>{item.txt2}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="personalize-contact-wrap">
-          <ul>
-            {personalizeContact.map((item, index) => (
-              <li key={index}>
-                <div>
-                  <img src={item.src} alt={item.alt + "-image"} />
-                </div>
-                <div>
-                  <span>{item.txt1}</span>
-                  {item.alt === "star" ? (
-                    <p>{item.txt2}</p>
-                  ) : (
-                    <a href="#">{item.txt2}</a>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <section className="home-fourth-section">
+        {fourthSectionContent.map((item, index) => (
+          <React.Fragment key={index}>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.txt}</p>
+              <img src={item.src} alt={item.alt + "-image"} />
+            </div>
+            <form action="" id="form" onSubmit={submitHandler}>
+              <div>
+                {item.formContent.map((inpt, i) => (
+                  <React.Fragment key={i}>
+                    <label htmlFor={inpt.inputId}>{inpt.labelTag}</label>
+                    <input
+                      type="text"
+                      placeholder={inpt.holder}
+                      name={inpt.inputName}
+                      id={inpt.inputId}
+                      className={
+                        inpt.inputId === "mail-input" && isError
+                          ? "input-error"
+                          : ""
+                      }
+                      value={isInput[inpt.inputName]}
+                      onChange={inputHandler}
+                      required
+                    />
+                  </React.Fragment>
+                ))}
+                <textarea
+                  name="userMessage"
+                  id="message-input"
+                  placeholder="Message"
+                  value={isInput.userMessage}
+                  onChange={inputHandler}
+                  required
+                ></textarea>
+                <input
+                  type="text"
+                  name="_honey"
+                  value={isInput._honey}
+                  onChange={inputHandler}
+                  style={{
+                    position: "absolute",
+                    left: "-999999px",
+                  }}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+                <button type="submit" disabled={isSending}>
+                  <span
+                    id="message-loader"
+                    className={`${isSending ? "spinner" : ""}`}
+                  ></span>
+                  <span id="btn-text">
+                    {" "}
+                    {isSending ? "Sending..." : "Submit"}
+                  </span>
+                </button>
+              </div>
+            </form>
+          </React.Fragment>
+        ))}
       </section>
     </>
   );

@@ -1,4 +1,4 @@
-import { quickLinks, mediaLinks } from "./scripts/footerData.js";
+import { footerTitle, quickLinks, mediaLinks } from "./scripts/footerData.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -61,8 +61,12 @@ function Footer() {
       <footer>
         <div className="upper-footer">
           <div className="footer-title">
-            <p className="footer-web-title">LUMINOSUS</p>
-            <p>Timeless elegance in every piece.</p>
+            {footerTitle.map((item, index) => (
+              <React.Fragment key={index}>
+                <p className="footer-web-title">{item.title}</p>
+                <p>{item.subTitle}</p>
+              </React.Fragment>
+            ))}
           </div>
           <div className="footer-links-wrap">
             <ul className="quick-links">

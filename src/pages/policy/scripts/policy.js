@@ -4,6 +4,9 @@ export const firstSectionContent = [
     ]}
 ];
 
+export const thirdSectionTitle = [
+    {title: "POLICY DETAILS", subTitle: "Easy returns, hastle-free"}
+];
 export const secondSectionContent = [
     {src: "./images/policy/package-return-logistic-svgrepo-com.svg", alt: "return", description: [
         {paragraph: "14-DAY RETURNS"},

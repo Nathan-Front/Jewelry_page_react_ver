@@ -1,4 +1,5 @@
 import { thirdSectionContent } from "./scripts/thirdSection.js";
+import { Link } from "react-router-dom";
 import React from "react";
 function ThirdSection() {
   return (
@@ -9,7 +10,7 @@ function ThirdSection() {
             <article className="our-story-wrap">
               <h2>{item.title}</h2>
               <p>{item.paragraph}</p>
-              <a href="about.html">{item.btnLink}</a>
+              <Link to="/about">{item.btnLink}</Link>
             </article>
             <div className="our-story-image-wrap">
               <img src={item.src} alt={item.alt + "-image"} loading="lazy" />

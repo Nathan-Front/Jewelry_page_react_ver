@@ -1,3 +1,6 @@
+export const footerTitle = [
+    {title: "LUMINOSUS", subTitle: "Timeless elegance in every piece."}
+];
 export const quickLinks = [
     {maintitle: "QUICK LINKS",
     details: [

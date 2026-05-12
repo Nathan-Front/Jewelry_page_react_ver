@@ -1,12 +1,17 @@
-import { thirdSectionContent } from "./scripts/policy.js";
+import { thirdSectionTitle, thirdSectionContent } from "./scripts/policy.js";
 import React from "react";
 
 function PolicyThirdSection() {
   return (
     <>
       <section className="policy-third-section">
-        <p className="third-title">POLICY DETAILS</p>
-        <p className="third-description">Easy returns, hastle-free</p>
+        {thirdSectionTitle.map((item, index) => (
+          <React.Fragment key={index}>
+            <p className="third-title">{item.title}</p>
+            <p className="third-description">{item.subTitle}</p>
+          </React.Fragment>
+        ))}
+
         <ul className="policy-lists">
           {thirdSectionContent.map((item, index) => (
             <li key={index}>
@@ -43,7 +48,6 @@ function PolicyThirdSection() {
                         ) : null}
                       </React.Fragment>
                     ))}
-
                     {text.listClass && (
                       <ul className={text.listClass}>
                         {text.list?.map((txtList, l) => (
