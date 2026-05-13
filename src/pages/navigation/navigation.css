@@ -3,6 +3,17 @@
     width: 100%;
     background-color: #F9F7F2;
     padding: 5px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 0.35s ease;
+    z-index: 1000;
+}
+.nav-main-wrapper.show {
+  transform: translateY(0);
+}
+.nav-main-wrapper.hide {
+  transform: translateY(-100%);
 }
 .nav-list-wrapper {
     width: 100%;
