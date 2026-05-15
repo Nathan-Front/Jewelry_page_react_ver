@@ -3,7 +3,17 @@ import {
   contactSecondContentImg,
 } from "./scripts/contact.js";
 import React from "react";
+import { useState, useEffect } from "react";
 function ContactSecondSection() {
+  const [slideImage, setSlideImage] = useState(0);
+  useEffect(() => {
+    const scrollHandler = () => {
+      setSlideImage(window.scrollY * 0.3);
+    };
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
   return (
     <>
       <section className="contact-second-section">

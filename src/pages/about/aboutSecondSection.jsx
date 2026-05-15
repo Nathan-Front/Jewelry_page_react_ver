@@ -1,17 +1,45 @@
 import { aboutSecondContent, aboutSecondContentImg } from "./scripts/about.js";
 import React from "react";
-
+import { useState, useEffect, useRef } from "react";
 function AboutSecondSection() {
+  const imageRef = useRef(null);
+  const textRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShow(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "-100px 0px" },
+    );
+    const current = imageRef.current;
+    const currentTxt = textRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    if (currentTxt) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  });
+
   return (
     <>
       <section className="about-second-section">
         {aboutSecondContentImg.map((item, index) => (
           <React.Fragment key={index}>
-            <img src={item.src} alt={item.alt + "-image"} />
+            <img
+              src={item.src}
+              alt={item.alt + "-image"}
+              className={show ? "slideImg" : ""}
+              ref={imageRef}
+            />
           </React.Fragment>
         ))}
 
-        <article>
+        <article className={show ? "slideTxt" : ""} ref={textRef}>
           {aboutSecondContent.map((item, index) => (
             <React.Fragment key={index}>
               {item.title && <h3>{item.title}</h3>}

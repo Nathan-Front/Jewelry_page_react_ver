@@ -1,7 +1,7 @@
 import { fourthSectionContent } from "./scripts/fifthSection.js";
 import React from "react";
 import { validateEmail } from "../../assets/script/emailValidator.js";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 function FifthSection() {
   const initialForm = {
     userName: "",
@@ -61,9 +61,33 @@ function FifthSection() {
     }
   };
 
+  const appearRef = useRef(null);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShow(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "-100px 0px" },
+    );
+
+    const current = appearRef.current;
+
+    if (current) {
+      observer.observe(current);
+    }
+
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
-      <section className="home-fourth-section">
+      <section
+        className={show ? "home-fourth-section show" : "home-fourth-section"}
+        ref={appearRef}
+      >
         {fourthSectionContent.map((item, index) => (
           <React.Fragment key={index}>
             <div>

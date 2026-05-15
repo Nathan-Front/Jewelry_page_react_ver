@@ -1,0 +1,55 @@
+.contact-first-section {
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-first-section> span {
+    color: black;
+    font-family: "Bodoni Moda", serif;
+    font-size: clamp(3.8rem, 6vw, 7.5rem);
+    line-height: 0.92;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: #2b2b2b;
+}
+.contact-main-title-left {
+    margin: 0 0 0 5rem;
+    animation: slideLeft 0.8s ease-in;
+}
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.contact-main-title-right {
+    margin: 0 5rem 0 auto;
+    animation: slideRight 0.8s ease-in;
+}
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@media only screen and (max-width: 599px) {
+    .contact-first-section {
+        margin-top: 80px;
+    }
+    .contact-main-title-left,
+    .contact-main-title-right {
+        margin: 0 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -2,6 +2,13 @@
     width: 100%;
     padding: 80px 0;
     display: flex;
+    opacity: 0;
+    transform: translate(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.home-third-section.slideIn {
+    opacity: 1;
+    transform: translate(0);
 }
 .our-story-wrap {
     flex: 1;

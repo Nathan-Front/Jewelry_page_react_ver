@@ -1,12 +1,11 @@
 .contact-second-section {
     width: 100%;
     display: flex;
-    padding: 50px 0;
+    padding: 0;
 }
 .contact-second-section> img {
-    width: clamp(50%, 45vw, 90%);
-    border-radius: 1.25em;
-    margin: 1rem;
+    width: 50%;
+    height: 100%;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 .contact-second-section> div {
