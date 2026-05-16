@@ -23,26 +23,29 @@ function PolicyThirdSection() {
       if (current) observer.unobserve(current);
     };
   }, []);
-  const articleRef = useRef(null);
-  const [showArticles, setShowArticles] = useState(false);
+  const articleRef = useRef([]);
+  const [showArticles, setShowArticles] = useState([]);
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowArticles(true);
-        } else {
-          setShowArticles(false);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.dataset.index);
+
+          if (entry.isIntersecting) {
+            setShowArticles((prev) => [...new Set([...prev, index])]);
+          } else {
+            setShowArticles((prev) => prev.filter((item) => item !== index));
+          }
+        });
       },
-      { threshold: 0.2, rootMargin: "200px 0px" },
+      {
+        threshold: 0.2,
+      },
     );
-    const current = articleRef.current;
-    if (current) {
-      observer.observe(current);
-    }
-    return () => {
-      if (current) observer.unobserve(current);
-    };
+    articleRef.current.forEach((article) => {
+      if (article) observer.observe(article);
+    });
+    return () => observer.disconnect();
   }, []);
   return (
     <>
@@ -70,8 +73,9 @@ function PolicyThirdSection() {
           {thirdSectionContent.map((item, index) => (
             <li
               key={index}
-              className={showArticles ? "activeArticle" : ""}
-              ref={articleRef}
+              ref={(el) => (articleRef.current[index] = el)}
+              data-index={index}
+              className={showArticles.includes(index) ? "activeArticle" : ""}
             >
               <div className="policy-list-image">
                 <img src={item.src} alt={item.alt + "-image"} />
