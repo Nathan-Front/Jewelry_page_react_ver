@@ -37,10 +37,10 @@
 .left-side> div> img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
     display: block;
     object-fit: cover;
     transition: transform 0.2s ease;
-    
 }
 .left-side> div> img:hover {
     transform: scale(1.2);
@@ -48,7 +48,7 @@
 .left-side> ul {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     margin: 0 auto;
     padding: 0;
     gap: 4px;
