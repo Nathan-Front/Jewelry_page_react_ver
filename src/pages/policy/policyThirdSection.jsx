@@ -1,20 +1,78 @@
 import { thirdSectionTitle, thirdSectionContent } from "./scripts/policy.js";
 import React from "react";
-
+import { useState, useEffect, useRef } from "react";
 function PolicyThirdSection() {
+  const textRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.2 },
+    );
+    const current = textRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
+  const articleRef = useRef(null);
+  const [showArticles, setShowArticles] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowArticles(true);
+        } else {
+          setShowArticles(false);
+        }
+      },
+      { threshold: 0.2, rootMargin: "200px 0px" },
+    );
+    const current = articleRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
       <section className="policy-third-section">
         {thirdSectionTitle.map((item, index) => (
           <React.Fragment key={index}>
-            <p className="third-title">{item.title}</p>
-            <p className="third-description">{item.subTitle}</p>
+            <p
+              className={show ? "third-title activeP" : "third-title"}
+              ref={textRef}
+            >
+              {item.title}
+            </p>
+            <p
+              className={
+                show ? "third-description activeP" : "third-description"
+              }
+              ref={textRef}
+            >
+              {item.subTitle}
+            </p>
           </React.Fragment>
         ))}
 
         <ul className="policy-lists">
           {thirdSectionContent.map((item, index) => (
-            <li key={index}>
+            <li
+              key={index}
+              className={showArticles ? "activeArticle" : ""}
+              ref={articleRef}
+            >
               <div className="policy-list-image">
                 <img src={item.src} alt={item.alt + "-image"} />
               </div>

@@ -8,6 +8,13 @@
 .policy-third-section> p {
     margin: 0;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.policy-third-section> p.activeP {
+    opacity: 1;
+    transform: translateY(0);
 }
 .third-title {
     font-size: 14px;
@@ -56,6 +63,13 @@
     display: flex;
     gap: 1rem;
     padding: 20px 15px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.policy-lists> li.activeArticle {
+    opacity: 1;
+    transform: translateY(0);
 }
 .policy-list-image {
     width: clamp(60px, 4vw, 150px);

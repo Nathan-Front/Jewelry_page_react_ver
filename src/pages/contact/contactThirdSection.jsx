@@ -1,6 +1,6 @@
 import { contactThirdContent } from "./scripts/contact.js";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 function ContactThirdSection() {
   const answerRefs = useRef([]);
 
@@ -21,9 +21,36 @@ function ContactThirdSection() {
       }
     });
   };
+
+  const sectionRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.5, rootMargin: "-50px 0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
-      <section className="contact-third-section">
+      <section
+        className={
+          show ? "contact-third-section showFaq" : "contact-third-section"
+        }
+        ref={sectionRef}
+      >
         {contactThirdContent.map((item, index) => (
           <React.Fragment key={index}>
             <h3>{item.title}</h3>
@@ -33,11 +60,21 @@ function ContactThirdSection() {
                 <li className="faq-list" key={i}>
                   <button
                     type="button"
-                    className="faq-button"
+                    className={
+                      currentAnswer === i
+                        ? "faq-button activeAnswer"
+                        : "faq-button"
+                    }
                     onClick={() => faqHandler(i)}
                   >
                     <span>{faqs.question}</span>
-                    <span className="plus-icon">+</span>
+                    <span
+                      className={
+                        currentAnswer === i ? "plus-icon plus" : "plus-icon "
+                      }
+                    >
+                      {currentAnswer === i ? "－" : "＋"}
+                    </span>
                   </button>
                   <p
                     ref={(el) => (answerRefs.current[i] = el)}

@@ -57,7 +57,7 @@ footer {
 }
 .footer-links-wrap> ul> li> a:hover {
     color: #C9A96E;
-    font-weight: bold;
+    font-weight: 400;
 }
 .footer-links-wrap> ul> li> a> img {
     width: clamp(15px, 1.5vw, 50px);

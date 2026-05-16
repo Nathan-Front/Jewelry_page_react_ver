@@ -4,6 +4,13 @@
     flex-direction: column;
     align-items: center;
     padding: 50px 0 80px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.contact-third-section.showFaq {
+    opacity: 1;
+    transform: translateY(0);
 }
 .contact-third-section> h3 {
     font-size: clamp(1.5rem, 3vw, 3rem);
@@ -39,6 +46,10 @@
     font-size: 1.8rem;
     font-weight: 300;
     color: #c7a54b;
+    transition: transform 0.3s ease;
+}
+.plus-icon.plus {
+    transform: rotate(180deg);
 }
 .faq-button {
     margin: 0;
@@ -50,9 +61,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
-.faq-button:hover {
-    background: #f3efe8;
+.faq-button::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+}
+.faq-button:hover::after {
+    content: "";
+    width: 100%;
+    background: #ddd4c6;
+    transition: 0.3s ease-in;
+}
+.faq-button.activeAnswer {
+    background: #ddd4c6;
+}
+.faq-button> span {
+    z-index: 1;
 }
 .faq-answer {
     max-height: 0;

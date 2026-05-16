@@ -1,9 +1,16 @@
 .contact-first-section {
     width: 100%;
-    margin-top: 150px;
+    height: clamp(350px, 45vw, 900px);
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem;
+    background-image: url("/images/contact/contactBanner.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
 }
 .contact-first-section> span {
     color: black;
@@ -44,7 +51,8 @@
 }
 @media only screen and (max-width: 599px) {
     .contact-first-section {
-        margin-top: 80px;
+        margin-top: 30px;
+        
     }
     .contact-main-title-left,
     .contact-main-title-right {

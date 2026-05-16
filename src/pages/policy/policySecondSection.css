@@ -3,6 +3,13 @@
     display: flex;
     padding: 50px 0;
     border-bottom: 1px solid rgba(201,169,110,.3);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.policy-second-section.ringCircles {
+    opacity: 1;
+    transform: translateY(0);
 }
 .policy-second-section> ul {
     width: 95%;

@@ -1,12 +1,22 @@
 .contact-second-section {
     width: 100%;
+    margin: 80px auto;
     display: flex;
     padding: 0;
+    background-color: blanchedalmond;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.contact-second-section.showContact {
+    opacity: 1;
+    transform: translateY(0);
 }
 .contact-second-section> img {
     width: 50%;
     height: 100%;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    
 }
 .contact-second-section> div {
     width: 40%;
@@ -44,6 +54,7 @@
         flex-direction: column;
         gap: 1rem;
         padding: 30px 0;
+        width: 90%;
     }
     .contact-second-section> img {
         width: 80%;

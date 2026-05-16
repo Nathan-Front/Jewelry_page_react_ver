@@ -45,10 +45,15 @@
     .about-second-section> img {
         width: 80%;
     }
+    .about-second-section> article {
+        width: 80%;
+        margin: 0 auto;
+    }
     .about-second-section> article> h3,
     .about-second-section> article> p {
-        width: 80%;
-        margin: 0 0 0 2rem;
+        width: 100%;
+        margin: 0 0 0 0;
+        padding: 0;
 
     }
     .about-second-section> article> h3 {

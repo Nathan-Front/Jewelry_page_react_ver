@@ -3,20 +3,37 @@ import {
   contactSecondContentImg,
 } from "./scripts/contact.js";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 function ContactSecondSection() {
-  const [slideImage, setSlideImage] = useState(0);
+  const sectionRef = useRef(null);
+  const [show, setShow] = useState(false);
   useEffect(() => {
-    const scrollHandler = () => {
-      setSlideImage(window.scrollY * 0.3);
+    const oberver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.5, rootMargin: "-50px 0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      oberver.observe(current);
+    }
+    return () => {
+      if (current) oberver.unobserve(current);
     };
-    window.addEventListener("scroll", scrollHandler);
-
-    return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
   return (
     <>
-      <section className="contact-second-section">
+      <section
+        className={
+          show ? "contact-second-section showContact" : "contact-second-section"
+        }
+        ref={sectionRef}
+      >
         {contactSecondContentImg.map((item, index) => (
           <React.Fragment key={index}>
             <img src={item.src} alt={item.alt + "-image"} />

@@ -8,9 +8,13 @@ function AboutSecondSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShow(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
       },
-      { threshold: 0, rootMargin: "-100px 0px" },
+      { threshold: 0.5, rootMargin: "-50px 0px" },
     );
     const current = imageRef.current;
     const currentTxt = textRef.current;
