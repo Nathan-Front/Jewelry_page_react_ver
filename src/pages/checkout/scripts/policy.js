@@ -1,4 +1,5 @@
 export const returnPolicyData = [
+  {mainTitle: "Return & Refund Policy", mainText: "At LUMINOSUS, we want you to feel confident in every piece you purchase. If something isn’t quite right, we’re here to help.", toLinkText: "For more details, please read our", toLink: "Return & Policy", description: [
   {
     title: "Return Eligibility",
     items: [
@@ -28,4 +29,6 @@ export const returnPolicyData = [
       "If you need a different size or style, we recommend placing a new order and returning the original item.",
     ],
   },
+  ]}
 ];
+

@@ -1,7 +1,8 @@
 import { paymentCards } from "../shop/shopInner/scripts/paymentCard";
 import { returnPolicyData } from "./scripts/policy.js";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { Link } from "react-router-dom";
 function Checkout({ cartContent }) {
   const [formData, setFormData] = useState({
     contact: "",
@@ -209,29 +210,29 @@ function Checkout({ cartContent }) {
         </div>
         <div className="refund-policy-main-wrap">
           <div className="refund-policy-wrap">
-            <p className="title-policy">Return & Refund Policy</p>
-            <p>
-              At LUMINOSUS, we want you to feel confident in every piece you
-              purchase. If something isn’t quite right, we’re here to help.
-            </p>
-            {returnPolicyData.map((section, index) => (
-              <div key={index}>
-                <p className="title-sub-policy">{section.title}</p>
+            {returnPolicyData.map((item, index) => (
+              <React.Fragment key={index}>
+                <p className="title-policy">{item.mainTitle}</p>
+                <p>{item.mainText}</p>
+                {item.description.map((section, index) => (
+                  <div key={index}>
+                    <p className="title-sub-policy">{section.title}</p>
 
-                <ul>
-                  {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex}>
-                      <p>{item}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    <ul>
+                      {section.items.map((item, itemIndex) => (
+                        <li key={itemIndex}>
+                          <p>{item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                <p>
+                  {item.toLinkText}
+                  <Link to="/policy"> {item.toLink}</Link>
+                </p>
+              </React.Fragment>
             ))}
-
-            <p>
-              For more details, please read our
-              <a href="policy.html">Return & Refund Policy</a>
-            </p>
           </div>
         </div>
       </section>

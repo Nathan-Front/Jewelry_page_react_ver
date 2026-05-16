@@ -44,6 +44,8 @@ function Footer() {
       const result = await response.text();
       if (result === "Duplicate") {
         alert("Email already subscribed!");
+        setIsError(false);
+        setIsEmail(initialForm);
       } else {
         alert("Thank you for subscribing!");
         setIsError(false);
