@@ -19,6 +19,13 @@
     gap: 1em;
     padding: 0;
 }
+@media only screen and (min-width: 1400px) {
+    .shop-item-section> article> ul {
+        width: min(95%, 1400px);
+        grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+        gap: 2em;
+    }
+}
 .shop-item-section> article> ul> li {
     width: 100%;
     display: flex;

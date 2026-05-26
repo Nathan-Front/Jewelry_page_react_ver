@@ -38,7 +38,7 @@
 .home-first-section> a:hover {
     transform: translateY(-1px);
     color: #C9A96E;
-    font-weight: 600;
+    font-weight: 400;
 }
 @media only screen and (max-width: 599px) {
     .home-first-section {

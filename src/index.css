@@ -31,7 +31,7 @@ button:hover {
     transform: translateY(-1px);
 }
 p, li {
-    font-size: clamp(0.9rem, 1.3vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.3vw, 1.3rem);
 }
 
 

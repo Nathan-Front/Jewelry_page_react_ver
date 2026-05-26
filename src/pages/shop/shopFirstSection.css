@@ -91,7 +91,7 @@ legend {
     border: none;
     border-radius: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-    font-size: clamp(0.6rem, 1vw, 1.3rem);
+    font-size: clamp(0.6rem, 1vw, 1.2rem);
     flex: 1;
     height: clamp(20px, 10vw, 50px);
 }
